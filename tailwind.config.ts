@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -8,13 +8,70 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        rose: {
+          DEFAULT: '#FE0977',
+          100: '#350018',
+          200: '#6a0130',
+          300: '#9e0148',
+          400: '#d30160',
+          500: '#fe0977',
+          600: '#fe3c93',
+          700: '#fe6dae',
+          800: '#ff9ec9',
+          900: '#ffcee4',
+        },
+        red_violet: {
+          DEFAULT: '#D0079E',
+          100: '#29011f',
+          200: '#53033f',
+          300: '#7c045e',
+          400: '#a5067e',
+          500: '#d0079e',
+          600: '#f71bc0',
+          700: '#f954d0',
+          800: '#fb8ddf',
+          900: '#fdc6ef',
+        },
+        indigo: {
+          DEFAULT: '#480079',
+          100: '#0f0018',
+          200: '#1d0031',
+          300: '#2c0049',
+          400: '#3b0062',
+          500: '#480079',
+          600: '#7800c8',
+          700: '#a216ff',
+          800: '#c164ff',
+          900: '#e0b1ff',
+        },
+        phthalo_blue: {
+          DEFAULT: '#191990',
+          100: '#05051d',
+          200: '#0a0a39',
+          300: '#0f0f56',
+          400: '#141472',
+          500: '#191990',
+          600: '#2323c9',
+          700: '#5151e0',
+          800: '#8b8bea',
+          900: '#c5c5f5',
+        },
+        cornflower_blue: {
+          DEFAULT: '#5299FE',
+          100: '#001c43',
+          200: '#013886',
+          300: '#0154c9',
+          400: '#0f73fe',
+          500: '#5299fe',
+          600: '#75aefe',
+          700: '#97c2fe',
+          800: '#bad7ff',
+          900: '#dcebff',
+        },
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
