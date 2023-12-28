@@ -12,7 +12,7 @@ const UserForm = () => {
   });
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     const name = e.target.name;
 
@@ -22,14 +22,16 @@ const UserForm = () => {
     }));
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     setErrorMessage('');
 
     const res = await fetch('/api/Users', {
       method: 'POST',
       body: JSON.stringify({ formData }),
-      'content-type': 'application/json',
+      headers: {
+        'content-type': 'application/json',
+      },
     });
 
     if (!res.ok) {
