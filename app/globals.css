@@ -6,7 +6,10 @@
   h1 {
     @apply font-bold text-3xl;
   }
-  a {
-    @apply dark:hover:text-maize dark:drop-shadow-5px;
+  .page {
+    @apply text-sm text-gray-400 dark:hover:text-maize-400;
+  }
+  .hero {
+    @apply text-lg font-semibold dark:text-white;
   }
 }

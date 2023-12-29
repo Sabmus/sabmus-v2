@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       dropShadow: {
-        '5px': '0 0 2px #F5DF50',
+        '5px': '0 0 5px rgba(245,223,80, 0.7)',
       },
       colors: {
         maize: {
