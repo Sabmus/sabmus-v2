@@ -6,7 +6,7 @@ import { useSession, signIn } from 'next-auth/react';
 
 const LoginForm = () => {
   const params = useSearchParams();
-  const { data: session, status } = useSession();
+  const { data: session, status, update } = useSession();
 
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -39,7 +39,7 @@ const LoginForm = () => {
 
     const { email, password } = formData;
 
-    const data = await signIn('credentials', { redirect: false, callbackUrl: '/', email, password });
+    const data = await signIn('credentials', { redirect: false, callbackUrl: '/projects', email, password });
     router.push(data?.url!);
   };
 
