@@ -1,13 +1,20 @@
 import Link from 'next/link';
+import { urls } from '@/constants/urls';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/auth.config';
 
-const Nav = () => {
+const Nav = async () => {
+  const session = await getServerSession(authOptions);
+
   return (
     <div className="">
       <nav className="flex justify-around items-center py-3">
-        <Link href="/CreateUser">Create User</Link>
-        <Link href="/ClientMember">Cliente Member</Link>
-        <Link href="/Member">Member</Link>
-        <Link href="/Public">Public</Link>
+        {urls.map(url => (
+          <Link key={url.name} href={url.href}>
+            {url.name}
+          </Link>
+        ))}
+        {session && <Link href="/CreateUser">Create User</Link>}
       </nav>
     </div>
   );
