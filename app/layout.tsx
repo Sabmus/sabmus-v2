@@ -12,10 +12,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    // TODO: find a solution for next-themes to not use "suppressHydrationWarning"
+    <html lang="en" suppressHydrationWarning>
       <body className="flex flex-col items-center w-full dark:bg-federal_blue">
         <AuthProvider>
-          <ThemeProviderWrapper>
+          <ThemeProviderWrapper attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             <div className="w-1/2 px-10">
               <Header />
               <Nav />

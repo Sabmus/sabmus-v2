@@ -1,15 +1,17 @@
 'use client';
-import { useState, useEffect } from 'react';
+
+// import { useState, useEffect } from 'react';
+import * as React from 'react';
 import { useTheme } from 'next-themes';
 import { SunIcon } from '@heroicons/react/24/outline';
 import { MoonIcon } from '@heroicons/react/24/solid';
 
 export const ThemeSwitcher = () => {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = React.useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
 
   // useEffect only runs on the client, so now we can safely show the UI
-  useEffect(() => {
+  React.useEffect(() => {
     setMounted(true);
   }, []);
 
