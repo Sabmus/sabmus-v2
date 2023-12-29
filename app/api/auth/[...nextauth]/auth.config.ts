@@ -8,6 +8,9 @@ import User from '@/db/models/User';
 import bcrypt from 'bcrypt';
 
 export const authOptions: NextAuthOptions = {
+  //adapter has a warning because MongoDBAdapter should come from @next-auth/mongodb-adapter
+  //but in the docs they use @auth/mongodb-adapter
+  // @ts-ignore
   adapter: MongoDBAdapter(clientPromise),
   session: {
     strategy: 'jwt',
@@ -43,9 +46,9 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  pages: {
+  /*   pages: {
     signIn: '/login',
-  },
+  }, */
   callbacks: {
     /* async jwt({ token, user }: any) {
       if (user) {
