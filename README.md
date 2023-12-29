@@ -2,4 +2,4 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-this is a new version of my personal website. I'm using NextJS v14.0.4 with NextAuth v4.24.5
+this is a new version of my personal website. I'm using NextJS v14.0.4 with NextAuth v4.24.5.
