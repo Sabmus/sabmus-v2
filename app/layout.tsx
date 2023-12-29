@@ -1,7 +1,6 @@
 import AuthProvider from '@/components/AuthProvider';
 import type { Metadata } from 'next';
 import './globals.css';
-import Nav from '@/components/Nav';
 import Header from '@/components/Header';
 import { ThemeProviderWrapper } from '@/components/theme/ThemeProviderWrapper';
 
@@ -17,9 +16,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex flex-col items-center w-full dark:bg-federal_blue">
         <AuthProvider>
           <ThemeProviderWrapper attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            <div className="w-1/2 px-10">
+            <div className="w-4/5 px-10">
               <Header />
-              <Nav />
               <div>{children}</div>
             </div>
           </ThemeProviderWrapper>
