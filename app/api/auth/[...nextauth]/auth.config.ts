@@ -47,7 +47,7 @@ export const authOptions: NextAuthOptions = {
     signIn: '/login',
   },
   callbacks: {
-    async jwt({ token, user }: any) {
+    /* async jwt({ token, user }: any) {
       if (user) {
         token.user = {
           _id: user.id,
@@ -56,10 +56,14 @@ export const authOptions: NextAuthOptions = {
         };
       }
       return token;
-    },
+    }, */
     async session({ session, token }: any) {
       if (token) {
-        session.user = token.user;
+        session.user = {
+          _id: token.sub,
+          name: token.name,
+          email: token.email,
+        };
       }
       return session;
     },
