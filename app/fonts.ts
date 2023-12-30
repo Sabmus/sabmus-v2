@@ -3,7 +3,6 @@ import { Montserrat, Roboto_Mono, Lora, Source_Code_Pro } from 'next/font/google
 export const robotoMono = Roboto_Mono({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-roboto-mono',
 });
 
 export const montserrat = Montserrat({

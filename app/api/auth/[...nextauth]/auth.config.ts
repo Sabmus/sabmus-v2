@@ -1,9 +1,9 @@
 import NextAuth from 'next-auth';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import type { NextAuthOptions } from 'next-auth';
-import clientPromise from '@/utils/clientPromise';
+import clientPromise from '@/lib/clientPromise';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import dbConnect from '@/utils/dbConn';
+import dbConnect from '@/lib/dbConn';
 import User from '@/db/models/User';
 import bcrypt from 'bcrypt';
 
