@@ -24,11 +24,11 @@ export const ThemeSwitcher = () => {
 
     const currentTheme = theme === 'system' ? systemTheme : theme;
     if (currentTheme === 'dark') {
-      return <SunIcon className="h-7 w-7 text-yellow-500" role="button" onClick={() => setTheme('light')} />;
+      return <SunIcon className="h-7 w-7 text-special_2" role="button" onClick={() => setTheme('light')} />;
     }
 
     if (currentTheme === 'light') {
-      return <MoonIcon className="h-7 w-7 text-blue-700" role="button" onClick={() => setTheme('dark')} />;
+      return <MoonIcon className="h-7 w-7 text-primary" role="button" onClick={() => setTheme('dark')} />;
     }
   };
 

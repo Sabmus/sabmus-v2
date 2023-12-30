@@ -3,21 +3,36 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
-    @apply font-bold text-3xl;
+  :root {
+    --background: 0 0% 70%;
+    --foreground: 222.2 84% 4.9%;
+
+    --primary: 218 45% 10%;
   }
+
+  .dark {
+    --background: 240 100% 7%;
+    --foreground: 210 40% 98%;
+
+    --primary: 218 96% 67%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+
   .page {
-    @apply text-sm text-gray-400 dark:hover:text-maize-400;
+    @apply text-sm text-primary dark:hover:text-special_2;
   }
   .hero {
-    @apply text-lg font-semibold dark:text-white;
+    @apply text-lg font-semibold dark:text-special_1;
   }
-}
-
-.tooltip {
-  @apply invisible absolute;
-}
-
-.has-tooltip:hover .tooltip {
-  @apply visible z-50;
+  .tooltip {
+    @apply invisible absolute;
+  }
+  .has-tooltip:hover .tooltip {
+    @apply visible z-50;
+  }
 }

@@ -28,9 +28,7 @@ const Header = async () => {
       </div>
       <div className="flex gap-5">
         <div className="has-tooltip hover:cursor-pointer">
-          <span className="tooltip rounded-full px-3 dark:bg-federal_blue dark:text-white mt-8 -ml-10">
-            download cv
-          </span>
+          <span className="tooltip rounded-full px-3 dark:bg-dark dark:text-special_2 mt-8 -ml-10">download cv</span>
           <Download size={25} />
         </div>
         <a className="dark:text-white" href="https://github.com/sabmus" target="_blank">

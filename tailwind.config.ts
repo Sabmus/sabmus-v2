@@ -12,6 +12,9 @@ const config: Config = {
         '5px': '0 0 5px rgba(245,223,80, 0.7)',
       },
       colors: {
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: 'hsl(var(--primary))',
         maize: {
           DEFAULT: '#F5DF50',
           100: '#3e3604',
@@ -84,6 +87,9 @@ const config: Config = {
           800: '#8360f5',
           900: '#c1affa',
         },
+        detail: '#fe578f',
+        special_1: '#1bf0ff',
+        special_2: '#f7e051',
       },
     },
   },
