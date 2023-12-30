@@ -8,6 +8,9 @@
     --foreground: 222.2 84% 4.9%;
 
     --primary: 218 45% 10%;
+    --special_1: 184 100% 55%;
+    --special_2: 52 91% 64%;
+    --detail: 340 99% 67%;
   }
 
   .dark {
@@ -15,6 +18,9 @@
     --foreground: 210 40% 98%;
 
     --primary: 218 96% 67%;
+    --special_1: 184 100% 55%;
+    --special_2: 52 91% 64%;
+    --detail: 340 99% 67%;
   }
 }
 
@@ -22,12 +28,11 @@
   body {
     @apply bg-background text-foreground;
   }
-
   .page {
-    @apply text-sm text-primary dark:hover:text-special_2;
+    @apply text-sm text-primary hover:text-special_2;
   }
   .hero {
-    @apply text-lg font-semibold dark:text-special_1;
+    @apply text-lg font-semibold text-special_1;
   }
   .tooltip {
     @apply invisible absolute;
