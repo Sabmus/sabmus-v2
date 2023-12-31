@@ -29,6 +29,7 @@ const config: Config = {
         special_1: 'hsl(var(--special_1))',
         special_2: 'hsl(var(--special_2))',
         detail: 'hsl(var(--detail))',
+        link: 'hsl(var(--link))',
 
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

@@ -13,12 +13,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     // TODO: find a solution for next-themes to not use "suppressHydrationWarning"
     <html lang="en" suppressHydrationWarning>
-      <body className="flex justify-center w-full h-screen">
+      <body className="flex justify-center w-full min-h-screen">
         <AuthProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            <div className="grid grid-cols-1 grid-rows-[7%_93%] w-4/5 px-3 py-3">
+            <div className="grid grid-cols-1 grid-rows-[7%_93%] w-11/12 px-2 py-[25px] gap-1">
               <Header />
-              <div>{children}</div>
+              {children}
             </div>
           </ThemeProvider>
         </AuthProvider>

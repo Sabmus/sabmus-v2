@@ -16,25 +16,27 @@ const Header = async () => {
           Simón Muñoz Saavedra
         </Link>
         {urls.map(url => (
-          <Link key={url.name} href={url.href} className="page">
+          <Link key={url.name} href={url.href} className="underAnimated">
             {url.name}
           </Link>
         ))}
         {session && (
-          <Link href="/projects/create" className="page">
+          <Link href="/projects/create" className="underAnimated">
             Add Project
           </Link>
         )}
       </div>
-      <div className="flex gap-5">
-        <div className="has-tooltip hover:cursor-pointer">
-          <span className="tooltip rounded-full px-3 dark:bg-dark dark:text-special_2 mt-8 -ml-10">download cv</span>
-          <Download size={25} className="hover:animate-bounce" />
-        </div>
-        <a className="dark:text-white" href="https://github.com/sabmus" target="_blank">
+      <div className="flex items-center gap-5">
+        <a className="relative px-4 py-3 border border-special_1 rounded-sm hover:cursor-pointer hover:bottom-1">
+          Resume
+          <span className="absolute hidden">
+            <Download size={20} />
+          </span>
+        </a>
+        <a className="dark:text-special_1 hover:scale-110" href="https://github.com/sabmus" target="_blank">
           <Github size={25} />
         </a>
-        <a className="dark:text-white" href="https://www.linkedin.com/in/sabmus/" target="_blank">
+        <a className="dark:text-special_1 hover:scale-110" href="https://www.linkedin.com/in/sabmus/" target="_blank">
           <Linkedin size={25} />
         </a>
         <ThemeSwitcher />

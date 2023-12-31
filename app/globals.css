@@ -33,10 +33,12 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    --link: 184 100% 55%;
   }
 
   .dark {
-    --background: 240 100% 7%;
+    --background: 216 65% 11%;
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -68,12 +70,22 @@
     --special_1: 184 100% 55%;
     --special_2: 52 91% 64%;
     --detail: 340 99% 67%;
+
+    --link: 184 100% 55%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply leading-none;
+  }
+  *,
+  ::before,
+  ::after {
+    @apply box-border;
+  }
+  html {
+    @apply font-mono text-[14px];
   }
   body {
     @apply bg-background text-foreground;
@@ -81,11 +93,19 @@
   h1 {
     @apply font-bold text-3xl;
   }
-  .page {
-    @apply text-sm text-primary hover:text-special_2;
+
+  .underAnimated {
+    @apply relative text-sm text-special_1;
   }
+  .underAnimated::after {
+    @apply absolute content-[""] bg-special_1 h-[1px] w-0 left-0 -bottom-[1px] rounded-xl duration-200;
+  }
+  .underAnimated:hover::after {
+    @apply w-full;
+  }
+
   .hero {
-    @apply text-lg font-semibold text-special_1;
+    @apply text-lg font-semibold text-special_2;
   }
   .tooltip {
     @apply invisible absolute;
