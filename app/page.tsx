@@ -1,13 +1,32 @@
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/auth.config';
-
 const Home = async () => {
-  const session = await getServerSession(authOptions);
-
+  {
+    /**
+    Simón 51.7px
+    Abiatar 59.6px
+    Muñoz 56.76px
+    Saavedra 74.05px
+  */
+  }
   return (
-    <div>
-      <h1>Home</h1>
-      {session && <p>hello!! now logged in as: {session?.user?.name}</p>}
+    <div className="w-fit">
+      <h1 className="group">
+        <span>S</span>
+        <div className="inline-block overflow-clip whitespace-nowrap w-0 group-hover:animate-reveal-simon">
+          <span>imon</span>
+        </div>
+        <span className="inline-block group-hover:animate-capitalize">a</span>b
+        <div className="inline-block overflow-clip whitespace-nowrap w-0 group-hover:animate-reveal-abiatar">
+          <span>iatar</span>
+        </div>
+        <span className="inline-block group-hover:animate-capitalize">m</span>u
+        <div className="inline-block overflow-clip whitespace-nowrap w-0 group-hover:animate-reveal-munoz">
+          <span>ñoz</span>
+        </div>
+        <span className="inline-block group-hover:animate-capitalize">s</span>
+        <div className="inline-block overflow-clip whitespace-nowrap w-0 group-hover:animate-reveal-saavedra">
+          <span>aavedra</span>
+        </div>
+      </h1>
     </div>
   );
 };
