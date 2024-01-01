@@ -24,6 +24,11 @@ const config: Config = {
       },
       fontSize: {
         md: '16px',
+        'clamp-lg': 'clamp(40px, 8vw, 80px)',
+        'clamp-md': 'clamp(30px, 2vw, 40px)',
+      },
+      gridTemplateColumns: {
+        'responsive-2': 'repeat(auto-fit, minmax(300px, 1fr))',
       },
       dropShadow: {
         white: '0 0 5px rgba(255,255,255, 1)',

@@ -4,6 +4,10 @@ export const urls = [
     href: '/about',
   },
   {
+    name: 'Experience',
+    href: '/experience',
+  },
+  {
     name: 'Projects',
     href: '/projects',
   },

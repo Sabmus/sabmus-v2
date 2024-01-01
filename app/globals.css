@@ -86,10 +86,7 @@
     @apply font-sans text-[15px];
   }
   body {
-    @apply bg-background text-foreground;
-  }
-  h1 {
-    @apply font-bold text-3xl;
+    @apply bg-background text-foreground text-[17px];
   }
   a {
     @apply font-mono;
@@ -110,7 +107,13 @@
     @apply w-full;
   }
   .hero {
-    @apply text-5xl font-extrabold text-foreground;
+    @apply font-bold text-special_1;
+  }
+  .big-font {
+    @apply text-clamp-lg;
+  }
+  .title {
+    @apply text-clamp-md text-special_1;
   }
   .tooltip {
     @apply invisible absolute;
