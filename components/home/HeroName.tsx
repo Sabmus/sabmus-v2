@@ -1,7 +1,7 @@
 const HeroName = () => {
   return (
     <div className="w-fit">
-      <h1 className="group">
+      <span className="group">
         <span>S</span>
         <div className="inline-block overflow-clip whitespace-nowrap w-0 group-hover:animate-reveal-simon">
           <span>imon</span>
@@ -18,7 +18,7 @@ const HeroName = () => {
         <div className="inline-block overflow-clip whitespace-nowrap w-0 group-hover:animate-reveal-saavedra">
           <span>aavedra</span>
         </div>
-      </h1>
+      </span>
     </div>
   );
 };

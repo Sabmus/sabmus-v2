@@ -32,14 +32,12 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
-
     --link: 184 100% 55%;
   }
 
   .dark {
-    --background: 216 65% 11%;
-    --foreground: 210 40% 98%;
+    --background: 216 65% 10%;
+    --foreground: 216 40% 70%;
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -66,12 +64,12 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
 
-    --primary-sabmus: 218 96% 67%;
+    --link: 184 100% 55%;
+
+    --primary-color: 218 96% 67%;
     --special_1: 184 100% 55%;
     --special_2: 52 91% 64%;
-    --detail: 340 99% 67%;
-
-    --link: 184 100% 55%;
+    --detail: 140 100% 70%;
   }
 }
 
@@ -85,7 +83,7 @@
     @apply box-border;
   }
   html {
-    @apply font-mono text-[14px];
+    @apply font-sans text-[15px];
   }
   body {
     @apply bg-background text-foreground;
@@ -93,25 +91,35 @@
   h1 {
     @apply font-bold text-3xl;
   }
+  a {
+    @apply font-mono;
+  }
+  p {
+    @apply leading-6;
+  }
+}
 
+@layer components {
   .underAnimated {
-    @apply relative text-sm text-special_1;
+    @apply relative text-sm text-detail w-fit;
   }
   .underAnimated::after {
-    @apply absolute content-[""] bg-special_1 h-[1px] w-0 left-0 -bottom-[1px] rounded-xl duration-200;
+    @apply absolute content-[""] bg-detail h-[1px] w-0 left-0 -bottom-[1px] rounded-xl duration-200;
   }
   .underAnimated:hover::after {
     @apply w-full;
   }
-
   .hero {
-    @apply text-lg font-semibold text-special_2;
+    @apply text-5xl font-extrabold text-foreground;
   }
   .tooltip {
     @apply invisible absolute;
   }
   .has-tooltip:hover .tooltip {
     @apply visible z-50;
+  }
+  .icon {
+    @apply text-detail hover:scale-110 hover:drop-shadow-white hover:text-white;
   }
 }
 

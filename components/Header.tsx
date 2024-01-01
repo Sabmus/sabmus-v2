@@ -2,51 +2,32 @@ import Link from 'next/link';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/auth.config';
 import { ThemeSwitcher } from '@/components/theme/ThemeSwitcher';
-import { urls } from '@/constants/urls';
-import { ArrowRightStartOnRectangleIcon, ArrowRightEndOnRectangleIcon } from '@heroicons/react/24/outline';
-import { Github, Linkedin, Download } from 'lucide-react';
+import { Github, Linkedin, LogIn, LogOut } from 'lucide-react';
+import { iconSize } from '@/constants/icons';
 
 const Header = async () => {
   const session = await getServerSession(authOptions);
 
   return (
-    <header className="flex justify-between py-2">
-      <div className="flex gap-6 items-baseline">
-        <Link href="/" className="hero">
-          Simón Muñoz Saavedra
-        </Link>
-        {urls.map(url => (
-          <Link key={url.name} href={url.href} className="underAnimated">
-            {url.name}
-          </Link>
-        ))}
-        {session && (
-          <Link href="/projects/create" className="underAnimated">
-            Add Project
-          </Link>
-        )}
-      </div>
+    <header>
       <div className="flex items-center gap-5">
-        <a className="relative px-4 py-3 border border-special_1 rounded-sm hover:cursor-pointer hover:bottom-1">
+        <a className="relative px-4 py-3 border text-detail border-detail rounded-sm transition-all hover:text-white hover:cursor-pointer hover:-translate-x-1 hover:-translate-y-1 hover:shadow-boxy">
           Resume
-          <span className="absolute hidden">
-            <Download size={20} />
-          </span>
         </a>
-        <a className="dark:text-special_1 hover:scale-110" href="https://github.com/sabmus" target="_blank">
-          <Github size={25} />
+        <a className="icon" href="https://github.com/sabmus" target="_blank">
+          <Github size={iconSize} />
         </a>
-        <a className="dark:text-special_1 hover:scale-110" href="https://www.linkedin.com/in/sabmus/" target="_blank">
-          <Linkedin size={25} />
+        <a className="icon" href="https://www.linkedin.com/in/sabmus/" target="_blank">
+          <Linkedin size={iconSize} />
         </a>
         <ThemeSwitcher />
         {!session ? (
           <Link href="/api/auth/signin?callbackUrl=/">
-            <ArrowRightEndOnRectangleIcon className="h-7 w-7 dark:text-white" />
+            <LogIn size={iconSize} className="icon" />
           </Link>
         ) : (
           <Link href="/api/auth/signout?callbackUrl=/">
-            <ArrowRightStartOnRectangleIcon className="h-7 w-7 dark:text-white" />
+            <LogOut size={iconSize} className="icon" />
           </Link>
         )}
       </div>
