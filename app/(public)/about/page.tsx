@@ -5,15 +5,16 @@ import Image from 'next/image';
 
 const About = async () => {
   return (
-    <div className="flex w-full h-full justify-center items-center">
+    <div className="flex w-full h-full justify-center items-center xs:items-start sm:items-start sm:justify-start">
       <div className="flex flex-col max-w-[90%] gap-3">
         <h1 className="title">About me</h1>
-        <div className="grid grid-cols-responsive-2 gap-4">
+        <div className="grid grid-cols-responsive-2 gap-4 md:gap-7">
           <div>
             <p>
-              Hi! my name is Simón Muñoz Saavedra, I'm a software engineer from Chile and I love to learn. When I start
-              my career I wasn't quite sure on what path to follow, so I decide to join a big professional services
-              partnership company. I stayed there for 8 month due to lack of technical professional development.
+              Hi! my name is Simón Muñoz Saavedra, I{"'"}m a software engineer from Chile and I love to learn. When I
+              start my career I wasn{"'"}t quite sure on what path to follow, so I decide to join a big professional
+              services partnership company. I stayed there for 8 month due to lack of technical professional
+              development.
             </p>
             <br />
             <p>
@@ -23,7 +24,7 @@ const About = async () => {
             <br />
             <p>
               One day I thought that I would never read about data related topics on a Sunday afternoon but I will enjoy
-              reading about web development. So here I'm!.
+              reading about web development. So here I{"'"}m!.
             </p>
             <br />
             <p>
@@ -42,7 +43,7 @@ const About = async () => {
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-7 items-center h-fit">
+          <div className="flex flex-col items-center h-fit">
             <Image
               src="/images/F3_1_optimized.webp"
               width={300}

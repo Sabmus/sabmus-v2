@@ -16,6 +16,17 @@ const config: Config = {
         '2xl': '1400px',
       },
     },
+    screens: {
+      mobileS: { max: '330px' },
+      mobileM: { max: '400px' },
+      mobileL: { max: '480px' },
+      tabletS: { max: '600px' },
+      tabletL: { max: '768px' },
+      desktopXS: { max: '900px' },
+      desktopS: { max: '1080px' },
+      desktopM: { max: '1200px' },
+      desktopL: { max: '1400px' },
+    },
     extend: {
       fontFamily: {
         consolas: 'Consolas',

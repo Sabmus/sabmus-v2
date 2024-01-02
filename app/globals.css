@@ -33,6 +33,14 @@
     --ring: 222.2 84% 4.9%;
 
     --link: 184 100% 55%;
+
+    --primary-color: 218 96% 67%;
+    --special_1: 184 100% 55%;
+    --special_2: 52 91% 64%;
+    --detail: 140 100% 70%;
+
+    --lightest-navy: 218, 41%, 23%;
+    --lightest-slate: 226, 70%, 88%;
   }
 
   .dark {
@@ -70,6 +78,9 @@
     --special_1: 184 100% 55%;
     --special_2: 52 91% 64%;
     --detail: 140 100% 70%;
+
+    --lightest-navy: 218, 41%, 23%;
+    --lightest-slate: 226, 70%, 88%;
   }
 }
 
@@ -77,13 +88,13 @@
   * {
     @apply leading-none;
   }
-  *,
-  ::before,
-  ::after {
-    @apply box-border;
+  ::selection {
+    background-color: var(--lightest-navy);
+    color: var(--lightest-slate);
   }
+
   html {
-    @apply font-sans text-[15px];
+    @apply scroll-smooth w-full min-h-[100vh] font-sans text-[15px];
   }
   body {
     @apply bg-background text-foreground text-[17px];
@@ -97,6 +108,9 @@
 }
 
 @layer components {
+  .nav {
+    @apply flex flex-col justify-center gap-4;
+  }
   .underAnimated {
     @apply relative text-sm text-detail w-fit;
   }

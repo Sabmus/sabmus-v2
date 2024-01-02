@@ -18,15 +18,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex justify-center w-full h-screen min-h-screen">
         <AuthProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            <div className="grid grid-cols-[12%_88%] grid-rows-[7%_93%] w-11/12 px-2 py-[25px] gap-1">
+            <div className="grid max-w-[100vw] max-h-[100vh] phone-lg:grid-cols-[25%_75%] phone-lg:grid-rows-[7%_93%] tablet:grid-cols-[12%_88%] tablet:grid-rows-[7%_93%] w-11/12 px-2 py-[25px] gap-1">
               <div className="col-span-2 flex justify-between items-center">
                 <Logo />
                 <Header />
               </div>
-              <div className="flex flex-col justify-center gap-4">
+              <div id="nav" className="nav">
                 <Nav />
               </div>
-              {children}
+              <div id="children">{children}</div>
             </div>
           </ThemeProvider>
         </AuthProvider>
