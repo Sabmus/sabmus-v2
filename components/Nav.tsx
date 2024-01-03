@@ -9,12 +9,14 @@ const Nav = async () => {
   const session = await getServerSession(authOptions);
 
   return (
-    <>
-      {urls.map(url => (
-        <Link key={url.name} href={url.href} className="flex items-center gap-1">
-          <ChevronRight size={chevronSize} className="icon animate-pulse" />
-          <span className="underAnimated leading-none text-base">{url.name}</span>
-        </Link>
+    <ul className="flex flex-col gap-2">
+      {urls.map((url, i) => (
+        <li key={i}>
+          <Link href={url.href} className="flex items-center gap-1">
+            <ChevronRight size={chevronSize} className="icon animate-pulse" />
+            <span className="underAnimated leading-none text-base">{url.name}</span>
+          </Link>
+        </li>
       ))}
       {session && (
         <Link href="/projects/create" className="flex items-center gap-1">
@@ -22,7 +24,7 @@ const Nav = async () => {
           <span className="underAnimated leading-none text-base">Add Project</span>
         </Link>
       )}
-    </>
+    </ul>
   );
 };
 

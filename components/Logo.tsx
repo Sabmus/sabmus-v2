@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import HeroName from './home/HeroName';
 
 const Logo = () => {
   return (

@@ -85,28 +85,19 @@
 }
 
 @layer base {
-  * {
-    @apply leading-none;
-  }
   ::selection {
     background-color: var(--lightest-navy);
     color: var(--lightest-slate);
   }
 
   html {
-    @apply scroll-smooth w-full min-h-[100vh] font-sans text-[15px];
+    @apply scroll-smooth w-full h-full font-sans;
   }
   body {
-    @apply bg-background text-foreground text-[17px];
+    @apply h-full bg-background text-foreground;
   }
-  /*   main {
-    @apply m-[0px_auto] w-full max-w-[1600px] min-h-screen;
-  } */
-  a {
-    @apply font-mono;
-  }
-  p {
-    @apply leading-6;
+  section {
+    @apply px-0 py-24 h-screen min-h-screen;
   }
 }
 
@@ -117,12 +108,14 @@
   #layout {
     @apply flex flex-col min-h-screen;
   } */
-
+  .sidebar {
+    @apply fixed bottom-20 w-fit h-fit z-10;
+  }
   .nav {
     @apply flex flex-col justify-center gap-4;
   }
   .underAnimated {
-    @apply relative text-sm text-detail w-fit;
+    @apply relative text-sm text-mgs-mint w-fit;
   }
   .underAnimated::after {
     @apply absolute content-[""] bg-detail h-[1px] w-0 left-0 -bottom-[1px] rounded-xl duration-200;

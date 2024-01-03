@@ -5,10 +5,10 @@ import Image from 'next/image';
 
 const About = () => {
   return (
-    <div className="flex w-full h-full justify-center items-center xs:items-start sm:items-start sm:justify-start">
-      <div className="flex flex-col max-w-[90%] gap-3">
+    <div className="flex justify-center items-center max-w-[900px]">
+      <div className="flex flex-col gap-3">
         <h1 className="title">About me</h1>
-        <div className="grid grid-cols-responsive-2 gap-4 md:gap-7">
+        <div className="grid grid-cols-responsive-200px">
           <div>
             <p>
               Hi! my name is Simón Muñoz Saavedra, I{"'"}m a software engineer from Chile and I love to learn. When I

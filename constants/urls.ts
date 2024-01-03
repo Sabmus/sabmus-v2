@@ -1,14 +1,14 @@
 export const urls = [
   {
     name: 'About',
-    href: '/about',
+    href: '#about',
   },
   {
     name: 'Experience',
-    href: '/experience',
+    href: '#experience',
   },
   {
     name: 'Projects',
-    href: '/projects',
+    href: '#projects',
   },
 ];

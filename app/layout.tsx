@@ -1,10 +1,11 @@
 import AuthProvider from '@/components/AuthProvider';
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/components/Header';
 import Nav from '@/components/Nav';
-import Logo from '@/components/Logo';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
+import { ThemeSwitcher } from '@/components/theme/ThemeSwitcher';
+import IconLinks from '@/components/IconLinks';
+import Logo from '@/components/Logo';
 
 export const metadata: Metadata = {
   title: 'Simón Muñoz Saavedra',
@@ -15,18 +16,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     // TODO: find a solution for next-themes to not use "suppressHydrationWarning"
     <html lang="en" suppressHydrationWarning>
-      <body className="flex justify-center w-full h-screen min-h-screen">
+      <body>
         <AuthProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            <div className="grid max-w-[1600px] min-h-screen mobileL:grid-cols-[25%_75%] mobileL:grid-rows-[7%_93%] tabletL:grid-cols-[12%_88%] tabletL:grid-rows-[7%_93%] desktopL:grid-cols-[12%_88%] desktopL:grid-rows-[7%_93%] w-11/12 px-2 py-[25px] gap-1">
-              <div className="col-span-2 flex justify-between items-center">
-                <Logo />
-                <Header />
+            <div id="root" className="min-h-screen">
+              <a href="#content" className="absolute top-auto -left-96 w-[1px] h-[1px overflow-hidden -z-50]">
+                Skip to content
+              </a>
+              <div className="flex flex-col min-h-screen">
+                <div id="top-right" className="fixed left-auto right-7 top-5 w-fit z-10">
+                  <ThemeSwitcher />
+                </div>
+                <div id="bottom-left" className="fixed left-7 right-auto h-60 flex flex-col justify-between">
+                  <Logo />
+                  <Nav />
+                </div>
+                <div id="bottom-right" className="sidebar right-7 left-auto ">
+                  <div className="flex flex-col items-center gap-2">
+                    <IconLinks />
+                  </div>
+                </div>
+                <div id="content" className="flex flex-col items-center min-h-screen">
+                  <main className="flex-sticky-footer">{children}</main>
+                  <footer className="shrink-0">ima fotter</footer>
+                </div>
               </div>
-              <div id="nav" className="nav">
-                <Nav />
-              </div>
-              <div id="children">{children}</div>
             </div>
           </ThemeProvider>
         </AuthProvider>
