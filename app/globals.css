@@ -99,6 +99,9 @@
   body {
     @apply bg-background text-foreground text-[17px];
   }
+  /*   main {
+    @apply m-[0px_auto] w-full max-w-[1600px] min-h-screen;
+  } */
   a {
     @apply font-mono;
   }
@@ -108,6 +111,13 @@
 }
 
 @layer components {
+  /*   #root {
+    @apply min-h-screen grid grid-rows-[1fr_auto] grid-cols-[100%];
+  }
+  #layout {
+    @apply flex flex-col min-h-screen;
+  } */
+
   .nav {
     @apply flex flex-col justify-center gap-4;
   }
