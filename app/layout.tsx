@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </a>
               <div className="flex flex-col min-h-screen">
                 <div className="fixed w-full top-3 h-16 z-10 flex justify-center">
-                  <GlowWrapper className="group relative flex justify-center h-16 w-5/6 bg-opacity-5">
+                  <GlowWrapper className="group relative flex justify-center bg-opacity-5">
                     <div className="relative flex justify-between items-center w-full bg-background bg-opacity-90 backdrop-blur-sm rounded-2xl px-10">
                       <Nav />
                       <IconLinks />
