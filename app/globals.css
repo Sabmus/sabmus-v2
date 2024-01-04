@@ -102,7 +102,7 @@
     background: radial-gradient(at 50% 50%, hsl(298, 100%, 15%) 0px, hsl(216, 65%, 10%) 50%) repeat scroll 0% 0%;
   } */
   section {
-    @apply px-0 py-44 h-screen min-h-screen;
+    @apply px-0 py-44 min-h-screen w-full;
   }
   h1,
   h2,
