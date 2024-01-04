@@ -37,7 +37,6 @@ const config: Config = {
         source_code_pro: 'SourceCodePro',
       },
       fontSize: {
-        md: '16px',
         'clamp-lg': 'clamp(40px, 8vw, 80px)',
         'clamp-md': 'clamp(30px, 2vw, 40px)',
       },
@@ -49,6 +48,7 @@ const config: Config = {
       },
       boxShadow: {
         boxy: '5px 5px 0px 0px hsl(var(--special_1))',
+        glow: '0px 0px 12px 0px hsl(var(--glow))',
       },
       colors: {
         special_1: 'hsl(var(--special_1))',
@@ -61,7 +61,7 @@ const config: Config = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
 
-        background: 'hsl(var(--background))',
+        background: 'hsl(var(--background) / <alpha-value>)',
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
@@ -241,12 +241,23 @@ const config: Config = {
           to: { height: '0' },
         },
         fade: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+          '0%, 100%': { opacity: '0.7' },
+          '75%': { opacity: '1' },
         },
         pulse: {
           '50%': {
             opacity: '0.25',
+          },
+        },
+        tilt: {
+          '0%, 50%, 100%': {
+            transform: 'rotate(0deg)',
+          },
+          '25%': {
+            transform: 'rotate(0.1deg)',
+          },
+          '75%': {
+            transform: 'rotate(-0.1deg)',
           },
         },
         'reveal-simon': {
@@ -287,8 +298,9 @@ const config: Config = {
         'reveal-abiatar': 'reveal-abiatar 2.5s 1',
         'reveal-munoz': 'reveal-munoz 2.5s 1',
         'reveal-saavedra': 'reveal-saavedra 2.5s 1',
-        fade: 'fade ease-in 0.3s 1',
+        fade: 'fade ease-in 1s infinite',
         capitalize: 'capitalize 2.5s 1',
+        tilt: 'tilt 10s linear infinite',
       },
     },
   },

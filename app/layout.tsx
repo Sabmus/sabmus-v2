@@ -1,11 +1,10 @@
 import AuthProvider from '@/components/AuthProvider';
 import type { Metadata } from 'next';
 import './globals.css';
-import Nav from '@/components/Nav';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
-import { ThemeSwitcher } from '@/components/theme/ThemeSwitcher';
+import Nav from '@/components/Nav';
 import IconLinks from '@/components/IconLinks';
-import Logo from '@/components/Logo';
+import GlowWrapper from '@/components/GlowWrapper';
 
 export const metadata: Metadata = {
   title: 'Simón Muñoz Saavedra',
@@ -24,20 +23,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 Skip to content
               </a>
               <div className="flex flex-col min-h-screen">
-                <div id="top-right" className="fixed left-auto right-7 top-5 w-fit z-10">
-                  <ThemeSwitcher />
+                <div className="fixed w-full top-3 h-16 z-10 flex justify-center">
+                  <GlowWrapper className="group relative flex justify-center h-16 w-5/6 bg-opacity-5">
+                    <div className="relative flex justify-between items-center w-full bg-background bg-opacity-90 backdrop-blur-sm rounded-2xl px-10">
+                      <Nav />
+                      <IconLinks />
+                    </div>
+                  </GlowWrapper>
                 </div>
-                <div id="bottom-left" className="fixed left-7 right-auto h-60 flex flex-col justify-between">
-                  <Logo />
-                  <Nav />
-                </div>
-                <div id="bottom-right" className="sidebar right-7 left-auto ">
-                  <div className="flex flex-col items-center gap-2">
-                    <IconLinks />
-                  </div>
-                </div>
-                <div id="content" className="flex flex-col items-center min-h-screen">
-                  <main className="flex-sticky-footer">{children}</main>
+                <div id="content" className="flex flex-col items-center w-full min-h-screen">
+                  <main className="flex-sticky-footer w-3/4">{children}</main>
                   <footer className="shrink-0">ima fotter</footer>
                 </div>
               </div>

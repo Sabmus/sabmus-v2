@@ -81,23 +81,36 @@
 
     --lightest-navy: 218, 41%, 23%;
     --lightest-slate: 226, 70%, 88%;
+
+    --glow: 226, 70%, 88%;
   }
 }
 
 @layer base {
-  ::selection {
+  /*   ::selection {
     background-color: var(--lightest-navy);
     color: var(--lightest-slate);
   }
-
+ */
   html {
     @apply scroll-smooth w-full h-full font-sans;
   }
   body {
     @apply h-full bg-background text-foreground;
   }
+  /*   body {
+    background: radial-gradient(at 50% 50%, hsl(298, 100%, 15%) 0px, hsl(216, 65%, 10%) 50%) repeat scroll 0% 0%;
+  } */
   section {
-    @apply px-0 py-24 h-screen min-h-screen;
+    @apply px-0 py-44 h-screen min-h-screen;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply leading-none;
+  }
+  p {
+    @apply leading-relaxed;
   }
 }
 
@@ -115,10 +128,10 @@
     @apply flex flex-col justify-center gap-4;
   }
   .underAnimated {
-    @apply relative text-sm text-mgs-mint w-fit;
+    @apply relative text-sm text-special_1 w-fit;
   }
   .underAnimated::after {
-    @apply absolute content-[""] bg-detail h-[1px] w-0 left-0 -bottom-[1px] rounded-xl duration-200;
+    @apply absolute content-[""] bg-special_1 h-[1px] w-0 left-0 -bottom-[1px] rounded-xl duration-200;
   }
   .underAnimated:hover::after {
     @apply w-full;
@@ -139,7 +152,7 @@
     @apply visible z-50;
   }
   .icon {
-    @apply text-detail hover:scale-110 hover:drop-shadow-white hover:text-white;
+    @apply text-special_1 hover:scale-110 hover:drop-shadow-white hover:text-white;
   }
 }
 
