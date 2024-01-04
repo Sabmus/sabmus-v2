@@ -240,9 +240,9 @@ const config: Config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
-        fade: {
-          '0%, 100%': { opacity: '0.7' },
-          '75%': { opacity: '1' },
+        'fade-out': {
+          '0%, 50%': { opacity: '1' },
+          '100%': { opacity: '0' },
         },
         pulse: {
           '50%': {
@@ -298,7 +298,7 @@ const config: Config = {
         'reveal-abiatar': 'reveal-abiatar 2.5s 1',
         'reveal-munoz': 'reveal-munoz 2.5s 1',
         'reveal-saavedra': 'reveal-saavedra 2.5s 1',
-        fade: 'fade ease-in 1s infinite',
+        'fade-out': 'fade-out ease-out 0.5s 1',
         capitalize: 'capitalize 2.5s 1',
         tilt: 'tilt 10s linear infinite',
       },

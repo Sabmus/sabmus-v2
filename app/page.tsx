@@ -1,4 +1,4 @@
-import { Home, About } from '@/components/section';
+import { Home, About, Experience, Projects } from '@/components/section';
 
 const Content = async () => {
   return (
@@ -8,6 +8,12 @@ const Content = async () => {
       </section>
       <section id="about">
         <About />
+      </section>
+      <section id="experience">
+        <Experience />
+      </section>
+      <section id="projects">
+        <Projects />
       </section>
     </div>
   );
