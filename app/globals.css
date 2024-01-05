@@ -154,6 +154,15 @@
   .icon {
     @apply text-special_1 hover:scale-110 hover:drop-shadow-white hover:text-white;
   }
+  .jobDescriptionList {
+    @apply list-none;
+  }
+  .jobDescriptionList::before {
+    content: '➣';
+    position: absolute;
+    left: 0;
+    color: hsl(140, 100%, 70%);
+  }
 }
 
 @layer base {
@@ -166,4 +175,19 @@
     font-family: 'SourceCodePro';
     src: url('../public/fonts/SourceCodePro-VariableFont_wght.ttf');
   }
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }

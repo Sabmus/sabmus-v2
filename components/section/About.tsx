@@ -2,6 +2,7 @@ import { Terminal } from 'lucide-react';
 import { techs } from '@/constants/techs';
 import { techMarker } from '@/constants/icons';
 import Image from 'next/image';
+import profilePic from '@/public/images/F3_1_optimized.webp';
 
 const About = () => {
   return (
@@ -44,13 +45,13 @@ const About = () => {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col items-center h-fit">
+            <div className="relative flex flex-col items-center">
               <Image
-                src="/images/F3_1_optimized.webp"
-                width={300}
-                height={300}
+                src={profilePic}
                 alt="my-photo"
-                className="rounded-2xl hover:drop-shadow-white hover:scale-110 hover:brightness-105 transition-all"
+                priority
+                quality={90}
+                className="rounded-2xl hover:drop-shadow-white hover:scale-110 hover:brightness-105 transition-all h-80 w-auto"
               />
             </div>
           </div>

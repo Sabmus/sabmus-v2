@@ -244,6 +244,10 @@ const config: Config = {
           '0%, 50%': { opacity: '1' },
           '100%': { opacity: '0' },
         },
+        'fade-in': {
+          '0%, 25%, 40%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
         pulse: {
           '50%': {
             opacity: '0.25',
@@ -298,7 +302,8 @@ const config: Config = {
         'reveal-abiatar': 'reveal-abiatar 2.5s 1',
         'reveal-munoz': 'reveal-munoz 2.5s 1',
         'reveal-saavedra': 'reveal-saavedra 2.5s 1',
-        'fade-out': 'fade-out ease-out 0.5s 1',
+        'fade-in': 'fade-in 0.5s',
+        'fade-out': 'fade-out ease-out 0.5s',
         capitalize: 'capitalize 2.5s 1',
         tilt: 'tilt 10s linear infinite',
       },
