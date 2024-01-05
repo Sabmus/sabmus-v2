@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import options from '@/lib/srConfig';
 import { Terminal } from 'lucide-react';
 import { techs } from '@/constants/techs';
 import { techMarker } from '@/constants/icons';
@@ -5,9 +9,24 @@ import Image from 'next/image';
 import profilePic from '@/public/images/F3_1_optimized.webp';
 
 const About = () => {
+  const revealDiv = useRef(null);
+
+  /**
+   * https://github.com/jlmakes/scrollreveal/issues/541
+   */
+  useEffect(() => {
+    async function animate() {
+      if (revealDiv.current) {
+        const sr = (await import('@/lib/sr')).default;
+        sr.reveal(revealDiv.current, options());
+      }
+    }
+    animate();
+  }, []);
+
   return (
     <section id="about">
-      <div className="flex justify-center items-center w-5/6 mx-auto">
+      <div ref={revealDiv} className="flex justify-center items-center w-5/6 mx-auto">
         <div className="flex flex-col gap-3">
           <h1 className="title">About me</h1>
           <div className="grid grid-cols-responsive-200px">
@@ -46,13 +65,14 @@ const About = () => {
               </div>
             </div>
             <div className="relative flex flex-col items-center">
-              <Image
+              {/** <Image
                 src={profilePic}
                 alt="my-photo"
                 priority
                 quality={90}
                 className="rounded-2xl hover:drop-shadow-white hover:scale-110 hover:brightness-105 transition-all h-80 w-auto"
-              />
+              />*/}
+              <span>image here</span>
             </div>
           </div>
         </div>

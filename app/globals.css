@@ -93,16 +93,16 @@
   }
  */
   html {
-    @apply scroll-smooth w-full h-full font-sans;
+    @apply scroll-smooth w-full font-sans;
   }
   body {
-    @apply h-full bg-background text-foreground;
+    @apply h-full w-full bg-background text-foreground;
   }
   /*   body {
     background: radial-gradient(at 50% 50%, hsl(298, 100%, 15%) 0px, hsl(216, 65%, 10%) 50%) repeat scroll 0% 0%;
   } */
   section {
-    @apply px-0 py-44 min-h-screen w-full;
+    @apply px-0 py-44 min-h-screen max-w-[1300px];
   }
   h1,
   h2,

@@ -1,7 +1,27 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import options from '@/lib/srConfig';
+
 const Home = () => {
+  const revealDiv = useRef(null);
+
+  /**
+   * https://github.com/jlmakes/scrollreveal/issues/541
+   */
+  useEffect(() => {
+    async function animate() {
+      if (revealDiv.current) {
+        const sr = (await import('@/lib/sr')).default;
+        sr.reveal(revealDiv.current, options(undefined, undefined, 'top'));
+      }
+    }
+    animate();
+  }, []);
+
   return (
     <section>
-      <div className="flex flex-col justify-center">
+      <div ref={revealDiv} className="flex flex-col justify-center">
         <h1 className="hero big-font">Simón Muñoz Saavedra.</h1>
         <h2 className="big-font font-bold">Software Engineer.</h2>
         <p className="max-w-[540px] my-10">

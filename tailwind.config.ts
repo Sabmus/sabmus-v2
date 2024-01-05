@@ -28,6 +28,10 @@ const config: Config = {
       desktopL: '1400px',
     },
     extend: {
+      transitionTimingFunction: {
+        'in-jobs': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
+        'out-jobs': 'cubic-bezier(0.19, 1, 0.22, 1)',
+      },
       flex: {
         'sticky-footer': '1 0 auto',
       },

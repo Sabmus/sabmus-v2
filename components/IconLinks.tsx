@@ -10,10 +10,10 @@ const IconLinks = async () => {
 
   return (
     <div className="flex gap-7">
-      <a className="icon" href="https://github.com/sabmus" target="_blank">
+      <a className="icon" href="https://github.com/sabmus" target="_blank" rel="noopener noreferrer">
         <Github size={iconSize} />
       </a>
-      <a className="icon" href="https://www.linkedin.com/in/sabmus/" target="_blank">
+      <a className="icon" href="https://www.linkedin.com/in/sabmus/" target="_blank" rel="noopener noreferrer">
         <Linkedin size={iconSize} />
       </a>
       <ThemeSwitcher />
