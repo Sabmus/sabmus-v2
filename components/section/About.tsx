@@ -27,7 +27,7 @@ const About = () => {
   return (
     <section id="about">
       <div ref={revealDiv} className="flex justify-center items-center w-5/6 mx-auto">
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col">
           <h1 className="title">About me</h1>
           <div className="grid grid-cols-responsive-200px">
             <div>

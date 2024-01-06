@@ -20,7 +20,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section>
+    <section className="mt-28">
       <div ref={revealDiv} className="flex flex-col justify-center">
         <h1 className="hero big-font">Simón Muñoz Saavedra.</h1>
         <h2 className="big-font font-bold">Software Engineer.</h2>

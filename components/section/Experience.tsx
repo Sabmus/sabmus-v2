@@ -33,7 +33,6 @@ const ExperiencePin = ({ idx }: { idx: string }) => {
 const Experience = () => {
   const [activeTab, setActiveTab] = useState(0);
   const revealDiv = useRef(null);
-  const nodeRef = useRef(null);
 
   /**
    * https://github.com/jlmakes/scrollreveal/issues/541
@@ -49,9 +48,10 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="max-w-[700px]">
-      <div id="experience" ref={revealDiv} className="grid grid-cols-[20%_80%] grid-rows-1 gap-4 w-full">
-        <div role="tablist" className="relative w-full">
+    <section id="experience" ref={revealDiv} className="max-w-[700px]">
+      <h1 className="title">Jobs</h1>
+      <div className="flex">
+        <div role="tablist" className="relative w-max z-10 p-0 m-0 list-none">
           {experienceData &&
             experienceData.map((data, i) => {
               return (
@@ -63,7 +63,7 @@ const Experience = () => {
                   aria-selected={activeTab === i}
                   aria-controls={`panel-${i}`}
                   onClick={() => setActiveTab(i)}
-                  className={`flex items-center w-full min-w-max pl-3 h-10 rounded-lg bg-background transform duration-200 delay-100 ${
+                  className={`flex items-center w-full min-w-max px-4 h-10 rounded-lg bg-background transform duration-200 delay-100 ${
                     activeTab === i ? 'opacity-100 text-special_1' : 'opacity-40'
                   }`}
                 >
@@ -73,58 +73,54 @@ const Experience = () => {
             })}
           <ExperiencePin idx={`id${activeTab.toString()}`} />
         </div>
-        <div className="relative w-full">
+
+        <div className="relative w-full ml-5">
           {experienceData &&
-            experienceData.map(({ place, position, url, range, years, description }, i) => {
-              return (
-                <CSSTransition
-                  key={i}
-                  nodeRef={nodeRef}
-                  in={activeTab === i ? true : false}
-                  timeout={250}
-                  classNames={{
-                    appear: 'opacity-0',
-                    appearActive: 'transition-opacity duration-300 opacity-100',
-                    enter: 'opacity-0',
-                    enterActive: 'transition-opacity duration-500 opacity-100',
-                    // exit: "opacity-100",  // this breaks the exit transition
-                    exitActive: 'transition-opacity duration-500 opacity-0',
-                  }}
-                  unmountOnExit
+            experienceData.map(({ place, position, url, range, years, description }, i) => (
+              <CSSTransition
+                key={i}
+                in={activeTab === i}
+                timeout={250}
+                classNames={{
+                  appear: 'opacity-0',
+                  appearActive: 'transition-opacity duration-300 opacity-100',
+                  enter: 'opacity-0',
+                  enterActive: 'transition-opacity duration-500 opacity-100',
+                  // exit: "opacity-100",  // this breaks the exit transition
+                  exitActive: 'transition-opacity duration-500 opacity-0',
+                }}
+              >
+                <div
+                  id={`panel-${i}`}
+                  role="tabpanel"
+                  tabIndex={activeTab === i ? 0 : -1}
+                  aria-labelledby={`tab-${i}`}
+                  aria-hidden={activeTab !== i}
+                  hidden={activeTab !== i}
+                  className="w-[541px] h-auto"
                 >
-                  <div
-                    ref={nodeRef}
-                    id={`panel-${i}`}
-                    role="tabpanel"
-                    tabIndex={activeTab === i ? 0 : -1}
-                    aria-labelledby={`tab-${i}`}
-                    aria-hidden={activeTab !== i}
-                    hidden={activeTab !== i ? true : false}
-                    className="w-full min-w-max"
-                  >
-                    <h3>
-                      <span>{position}</span>
-                      <span>
-                        &nbsp;@&nbsp;
-                        <a href={url} className="underAnimated" target="_blank">
-                          {place}
-                        </a>
-                      </span>
-                    </h3>
-                    <p>
-                      <span>{range}</span> <span>({years} years)</span>
-                    </p>
-                    <ul>
-                      {description.map((ele, j) => (
-                        <li key={j} className="relative jobDescriptionList pl-7">
-                          {ele}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CSSTransition>
-              );
-            })}
+                  <h3>
+                    <span className="text-lg text-special_2">{position}</span>
+                    &nbsp;@&nbsp;
+                    <span>
+                      <a href={url} className="underAnimated" target="_blank" rel="noopener noreferrer">
+                        {place}
+                      </a>
+                    </span>
+                  </h3>
+                  <p>
+                    <span>{range}</span> <span>({years})</span>
+                  </p>
+                  <ul>
+                    {description.map((ele, j) => (
+                      <li key={j} className="relative jobDescriptionList pl-7">
+                        {ele}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </CSSTransition>
+            ))}
         </div>
       </div>
     </section>

@@ -102,7 +102,7 @@
     background: radial-gradient(at 50% 50%, hsl(298, 100%, 15%) 0px, hsl(216, 65%, 10%) 50%) repeat scroll 0% 0%;
   } */
   section {
-    @apply px-0 py-44 min-h-screen max-w-[1300px];
+    @apply px-0 py-36 mx-auto max-w-[1300px];
   }
   h1,
   h2,
@@ -111,6 +111,9 @@
   }
   p {
     @apply leading-relaxed;
+  }
+  p {
+    width: clamp(45ch, 100%, 75ch);
   }
 }
 
@@ -143,7 +146,28 @@
     @apply text-clamp-lg;
   }
   .title {
-    @apply text-clamp-md text-special_1;
+    @apply text-clamp-md text-special_1 mb-7 text-center;
+  }
+  .title::after {
+    content: '';
+    display: block;
+    position: relative;
+    top: -15px;
+    width: 200px;
+    height: 1px;
+    background-color: rebeccapurple;
+    box-shadow: 0px 0px 7px 0px hsl(226, 70%, 88%);
+  }
+  .title::before {
+    content: '';
+    display: block;
+    position: relative;
+    top: 25px;
+    width: 200px;
+    height: 1px;
+    margin-left: auto;
+    background-color: rebeccapurple;
+    box-shadow: 0px 0px 7px 0px hsl(226, 70%, 88%);
   }
   .tooltip {
     @apply invisible absolute;
@@ -163,32 +187,4 @@
     left: 0;
     color: hsl(140, 100%, 70%);
   }
-
-  /*   .fade-enter {
-    @apply opacity-0;
-  }
-  .fade-enter-active {
-    @apply opacity-100 transition duration-300;
-  }
-  .fade-exit {
-    @apply opacity-100;
-  }
-  .fade-exit-active {
-    @apply opacity-0 transition duration-300;
-  } */
-}
-
-.fade-enter {
-  opacity: 0;
-}
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-.fade-exit {
-  opacity: 1;
-}
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }
