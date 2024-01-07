@@ -1,6 +1,6 @@
 import { Home, About, Experience, Projects } from '@/components/section';
 
-const Content = async () => {
+const Content = () => {
   return (
     <div className="flex flex-col items-center">
       <Home />

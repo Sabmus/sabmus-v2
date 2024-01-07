@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import Nav from '@/components/Nav';
 import IconLinks from '@/components/IconLinks';
 import GlowWrapper from '@/components/GlowWrapper';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Simón Muñoz Saavedra',
@@ -33,7 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
                 <div id="content" className="flex flex-col items-center w-full min-h-screen">
                   <main className="flex-sticky-footer w-3/4">{children}</main>
-                  <footer className="shrink-0">ima fotter</footer>
+                  <div className="shrink-0">
+                    <Footer />
+                  </div>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/auth.config';
 import { Github, Linkedin, LogIn, LogOut } from 'lucide-react';
-import { iconSize } from '@/constants/icons';
+import { iconSize } from '@/constants/iconsSize';
 import { ThemeSwitcher } from '@/components/theme/ThemeSwitcher';
 
 const IconLinks = async () => {

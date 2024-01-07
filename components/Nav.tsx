@@ -1,8 +1,22 @@
 import Link from 'next/link';
-import { urls } from '@/constants/urls';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/auth.config';
 import Logo from '@/components/Logo';
+
+const urls = [
+  {
+    name: 'About',
+    href: '#about',
+  },
+  {
+    name: 'Experience',
+    href: '#experience',
+  },
+  {
+    name: 'Projects',
+    href: '#projects',
+  },
+];
 
 const Nav = async () => {
   const session = await getServerSession(authOptions);
@@ -12,13 +26,14 @@ const Nav = async () => {
       <li>
         <Logo />
       </li>
-      {urls.map((url, i) => (
-        <li key={i}>
-          <Link href={url.href} className="flex items-center gap-1">
-            <span className="underAnimated leading-none text-base">{url.name}</span>
-          </Link>
-        </li>
-      ))}
+      {urls &&
+        urls.map((url, i) => (
+          <li key={i}>
+            <Link href={url.href} className="flex items-center gap-1">
+              <span className="underAnimated leading-none text-base">{url.name}</span>
+            </Link>
+          </li>
+        ))}
       {session && (
         <li>
           <Link href="/projects/create" className="flex items-center gap-1">

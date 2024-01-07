@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { useTheme } from 'next-themes';
 import { Sun, Moon } from 'lucide-react';
-import { iconSize } from '@/constants/icons';
+import { iconSize } from '@/constants/iconsSize';
 
 export function ThemeSwitcher({ ...props }) {
   const { setTheme } = useTheme();

@@ -1,6 +1,6 @@
 import { Terminal } from 'lucide-react';
 import { techs } from '@/constants/techs';
-import { techMarker } from '@/constants/icons';
+import { techMarker } from '@/constants/iconsSize';
 import Image from 'next/image';
 
 const About = () => {

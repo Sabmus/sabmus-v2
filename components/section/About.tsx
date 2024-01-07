@@ -3,13 +3,14 @@
 import { useEffect, useRef } from 'react';
 import options from '@/lib/srConfig';
 import { Terminal } from 'lucide-react';
-import { techs } from '@/constants/techs';
-import { techMarker } from '@/constants/icons';
+import { techMarker } from '@/constants/iconsSize';
 import Image from 'next/image';
 import profilePic from '@/public/images/F3_1_optimized.webp';
 
 const About = () => {
   const revealDiv = useRef(null);
+
+  const techs = ['Javascript', 'Typescript', 'NodeJs', 'ReactJS', 'SQL / NoSQL'];
 
   /**
    * https://github.com/jlmakes/scrollreveal/issues/541
@@ -56,12 +57,13 @@ const About = () => {
               <p>Here are my main technologies:</p>
               <br />
               <div className="grid grid-cols-2 grid-rows-3 gap-2 font-mono">
-                {techs.map(tech => (
-                  <span key={tech} className="flex items-center gap-1">
-                    <Terminal size={techMarker} className="text-special_2" />
-                    {tech}
-                  </span>
-                ))}
+                {techs &&
+                  techs.map(tech => (
+                    <span key={tech} className="flex items-center gap-1">
+                      <Terminal size={techMarker} className="text-special_2" />
+                      {tech}
+                    </span>
+                  ))}
               </div>
             </div>
             <div className="relative flex flex-col items-center">
