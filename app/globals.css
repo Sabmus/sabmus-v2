@@ -110,10 +110,10 @@
     @apply leading-none;
   }
   p {
-    @apply leading-relaxed;
+    @apply leading-normal;
   }
   p {
-    width: clamp(45ch, 100%, 75ch);
+    width: clamp(40ch, 100%, 75ch);
   }
 }
 
