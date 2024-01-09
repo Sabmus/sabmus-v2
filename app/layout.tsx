@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     </div>
                   </GlowWrapper>
                 </div>
-                <div id="content" className="flex flex-col min-h-screen">
+                <div id="content" className="flex flex-col w-full min-h-screen">
                   <main className="flex-sticky-footer">{children}</main>
                   <div className="shrink-0">
                     <Footer />

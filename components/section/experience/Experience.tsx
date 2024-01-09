@@ -122,7 +122,7 @@ const Experience = () => {
   return (
     <section id="experience">
       <div ref={revealDiv} className="flex flex-col items-center w-5/6 mx-auto">
-        <h1 className="title">Jobs</h1>
+        <h1 className="title">Experience</h1>
 
         <div className="flex">
           <div role="tablist" className="flex flex-col relative w-full max-w-max min-w-max">
