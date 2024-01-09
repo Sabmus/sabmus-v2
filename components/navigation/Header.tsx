@@ -12,7 +12,7 @@ const Header = () => {
       <div className="flex gap-5 tabletL:hidden">
         <IconLinks />
       </div>
-      <div className="hidden tabletL:block h-min">
+      <div className="hidden tabletL:block">
         <HamMenu>
           <NavLinks className="flex flex-col gap-5 w-fit mx-auto" />
           <div className="flex mx-auto gap-3">
