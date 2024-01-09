@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Logo = () => {
   return (
-    <Link href="/" className="flex items-center text-xl icon text-special_1">
+    <a href="/" className="relative z-10 flex items-center text-xl icon text-special_1">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="12"
@@ -30,7 +30,7 @@ const Logo = () => {
       >
         <path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1" />
       </svg>
-    </Link>
+    </a>
   );
 };
 

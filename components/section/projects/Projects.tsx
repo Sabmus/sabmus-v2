@@ -89,10 +89,10 @@ const Projects = () => {
 
   return (
     <section id="projects">
-      <div ref={revealDiv}>
+      <div ref={revealDiv} className="flex flex-col w-5/6 mx-auto">
         <h1 className="title">Projects</h1>
 
-        <div className="w-5/6 grid grid-cols-responsive-350px gap-4 mx-auto">
+        <div className="grid grid-cols-responsive-220px gap-4">
           {projectsList && projectsList.map((project, idx) => <ProjectCard key={idx} project={project} />)}
         </div>
       </div>

@@ -95,37 +95,25 @@
   }
  */
   html {
-    @apply scroll-smooth w-full font-sans;
+    @apply scroll-smooth font-sans;
   }
   body {
-    @apply h-full w-full bg-background text-foreground;
+    @apply w-full min-h-screen bg-background text-foreground;
   }
   /*   body {
     background: radial-gradient(at 50% 50%, hsl(298, 100%, 15%) 0px, hsl(216, 65%, 10%) 50%) repeat scroll 0% 0%;
   } */
   section {
-    @apply px-0 py-36 mx-auto max-w-[1300px];
+    @apply px-0 py-36 max-w-[1300px];
   }
   h1,
   h2,
   h3 {
     @apply leading-none;
   }
-  p {
-    @apply leading-normal;
-  }
-  p {
-    width: clamp(40ch, 100%, 75ch);
-  }
 }
 
 @layer components {
-  /*   #root {
-    @apply min-h-screen grid grid-rows-[1fr_auto] grid-cols-[100%];
-  }
-  #layout {
-    @apply flex flex-col min-h-screen;
-  } */
   .underAnimated {
     @apply relative text-sm text-special_1 w-fit;
   }
@@ -144,33 +132,6 @@
   .title {
     @apply text-clamp-md text-special_1 mb-7 text-center;
   }
-  .title::after {
-    content: '';
-    display: block;
-    position: relative;
-    top: -15px;
-    width: 200px;
-    height: 1px;
-    background-color: rebeccapurple;
-    box-shadow: 0px 0px 7px 0px hsl(226, 70%, 88%);
-  }
-  .title::before {
-    content: '';
-    display: block;
-    position: relative;
-    top: 25px;
-    width: 200px;
-    height: 1px;
-    margin-left: auto;
-    background-color: rebeccapurple;
-    box-shadow: 0px 0px 7px 0px hsl(226, 70%, 88%);
-  }
-  .tooltip {
-    @apply invisible absolute;
-  }
-  .has-tooltip:hover .tooltip {
-    @apply visible z-50;
-  }
   .icon {
     @apply text-special_1 hover:scale-110 hover:drop-shadow-white hover:text-white;
   }
@@ -182,5 +143,9 @@
     position: absolute;
     left: 0;
     color: hsl(140, 100%, 70%);
+  }
+  #test {
+    width: 100%;
+    max-width: max-content;
   }
 }

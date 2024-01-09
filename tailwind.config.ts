@@ -46,6 +46,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         'responsive-200px': 'repeat(auto-fit, minmax(200px, 1fr))',
+        'responsive-220px': 'repeat(auto-fit, minmax(220px, 1fr))',
         'responsive-300px': 'repeat(auto-fit, minmax(300px, 1fr))',
         'responsive-350px': 'repeat(auto-fit, minmax(350px, 1fr))',
         'responsive-400px': 'repeat(auto-fit, minmax(400px, 1fr))',

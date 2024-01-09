@@ -48,7 +48,7 @@ const ExperienceTransition = ({
         aria-labelledby={`tab-${idx}`}
         aria-hidden={activeTab !== idx}
         hidden={activeTab !== idx}
-        className="w-[541px] h-auto"
+        className="w-full"
       >
         <h3>
           <span className="text-lg text-special_2">{position}</span>
@@ -62,13 +62,15 @@ const ExperienceTransition = ({
         <p>
           <span>{range}</span> <span>({years})</span>
         </p>
-        <ul>
-          {description.map((ele, j) => (
-            <li key={j} className="relative jobDescriptionList pl-7">
-              {ele}
-            </li>
-          ))}
-        </ul>
+        <div>
+          <ul>
+            {description.map((ele, j) => (
+              <li key={j} className="relative jobDescriptionList pl-7">
+                {ele}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </CSSTransition>
   );

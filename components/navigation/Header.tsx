@@ -2,7 +2,7 @@ import { Logo, NavLinks, IconLinks, HamMenu } from '@/components/navigation';
 
 const Header = () => {
   return (
-    <div className="flex justify-between">
+    <nav className="flex justify-between items-center">
       <div className="flex gap-3 items-center">
         <Logo />
         <div className="tabletL:hidden">
@@ -12,7 +12,7 @@ const Header = () => {
       <div className="flex gap-5 tabletL:hidden">
         <IconLinks />
       </div>
-      <div className="hidden tabletL:block">
+      <div className="hidden tabletL:block h-min">
         <HamMenu>
           <NavLinks className="flex flex-col gap-5 w-fit mx-auto" />
           <div className="flex mx-auto gap-3">
@@ -20,7 +20,7 @@ const Header = () => {
           </div>
         </HamMenu>
       </div>
-    </div>
+    </nav>
   );
 };
 

@@ -50,7 +50,7 @@ const Experience = () => {
       techs: ['GCP', 'Python', 'SQL'],
     },
     {
-      place: 'Books and bits',
+      place: 'Books and Bits',
       position: 'Data Engineer',
       range: 'Nov 2019 - Mar 2022',
       years: calculateYears('2019-11-04', '2022-03-04'),
@@ -120,37 +120,40 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" ref={revealDiv} className="max-w-[700px]">
-      <h1 className="title">Jobs</h1>
-      <div className="flex">
-        <div role="tablist" className="relative w-max z-10 p-0 m-0 list-none">
-          {experienceData &&
-            experienceData.map((data, i) => {
-              return (
-                <button
-                  key={i}
-                  id={`tab-${i}`}
-                  role="tab"
-                  tabIndex={activeTab === i ? 0 : -1}
-                  aria-selected={activeTab === i}
-                  aria-controls={`panel-${i}`}
-                  onClick={() => setActiveTab(i)}
-                  className={`flex items-center w-full min-w-max px-4 h-10 rounded-lg bg-background transform duration-200 delay-100 ${
-                    activeTab === i ? 'opacity-100 text-special_1' : 'opacity-40'
-                  }`}
-                >
-                  <span>{data.place}</span>
-                </button>
-              );
-            })}
-          <ExperienceGlow idx={`id${activeTab.toString()}`} />
-        </div>
+    <section id="experience">
+      <div ref={revealDiv} className="flex flex-col items-center w-5/6 mx-auto">
+        <h1 className="title">Jobs</h1>
 
-        <div className="relative w-full ml-5">
-          {experienceData &&
-            experienceData.map((experienceData, i) => (
-              <ExperienceTransition key={i} experienceData={experienceData} activeTab={activeTab} idx={i} />
-            ))}
+        <div className="flex">
+          <div role="tablist" className="flex flex-col relative w-full max-w-max min-w-max">
+            {experienceData &&
+              experienceData.map((data, i) => {
+                return (
+                  <button
+                    key={i}
+                    id={`tab-${i}`}
+                    role="tab"
+                    tabIndex={activeTab === i ? 0 : -1}
+                    aria-selected={activeTab === i}
+                    aria-controls={`panel-${i}`}
+                    onClick={() => setActiveTab(i)}
+                    className={`px-4 h-10 rounded-lg bg-background transform duration-200 delay-100 ${
+                      activeTab === i ? 'opacity-100 text-special_1' : 'opacity-40'
+                    }`}
+                  >
+                    <span>{data.place}</span>
+                  </button>
+                );
+              })}
+            <ExperienceGlow idx={`id${activeTab.toString()}`} />
+          </div>
+
+          <div className="ml-5">
+            {experienceData &&
+              experienceData.map((experienceData, i) => (
+                <ExperienceTransition key={i} experienceData={experienceData} activeTab={activeTab} idx={i} />
+              ))}
+          </div>
         </div>
       </div>
     </section>
