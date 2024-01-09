@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/auth.config';
-import Logo from '@/components/Logo';
+
+type DivProps = React.HTMLProps<HTMLDivElement>;
 
 const urls = [
   {
@@ -18,14 +19,11 @@ const urls = [
   },
 ];
 
-const Nav = async () => {
+const Nav = async ({ className = '' }: DivProps) => {
   const session = await getServerSession(authOptions);
 
   return (
-    <ul className="flex items-center gap-6">
-      <li>
-        <Logo />
-      </li>
+    <ul className={`list-none ${className}`} tabIndex={-1}>
       {urls &&
         urls.map((url, i) => (
           <li key={i}>

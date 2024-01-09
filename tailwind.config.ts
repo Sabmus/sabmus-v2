@@ -69,6 +69,7 @@ const config: Config = {
         ring: 'hsl(var(--ring))',
 
         background: 'hsl(var(--background) / <alpha-value>)',
+        'background-lighter': 'hsl(var(--background-lighter) / <alpha-value>)',
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',

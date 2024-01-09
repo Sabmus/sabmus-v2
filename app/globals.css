@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --background-lighter: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -45,6 +46,7 @@
 
   .dark {
     --background: 216 65% 10%;
+    --background-lighter: 216 65% 10%;
     --foreground: 216 40% 70%;
 
     --card: 222.2 84% 4.9%;
@@ -124,12 +126,6 @@
   #layout {
     @apply flex flex-col min-h-screen;
   } */
-  .sidebar {
-    @apply fixed bottom-20 w-fit h-fit z-10;
-  }
-  .nav {
-    @apply flex flex-col justify-center gap-4;
-  }
   .underAnimated {
     @apply relative text-sm text-special_1 w-fit;
   }

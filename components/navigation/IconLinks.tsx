@@ -9,7 +9,7 @@ const IconLinks = async () => {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className="flex gap-7">
+    <>
       <a className="icon" href="https://github.com/sabmus" target="_blank" rel="noopener noreferrer">
         <Github size={iconSize} />
       </a>
@@ -26,7 +26,7 @@ const IconLinks = async () => {
           <LogOut size={iconSize} className="icon" />
         </Link>
       )}
-    </div>
+    </>
   );
 };
 

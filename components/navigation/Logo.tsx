@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Logo = () => {
   return (
-    <Link href="#content" className="flex items-center text-xl icon text-special_1">
+    <Link href="/" className="flex items-center text-xl icon text-special_1">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="12"
