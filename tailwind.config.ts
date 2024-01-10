@@ -17,15 +17,15 @@ const config: Config = {
       },
     },
     screens: {
-      mobileS: { max: '330px' },
-      mobileM: { max: '400px' },
-      mobileL: { max: '475px' },
-      tabletS: { max: '640px' },
-      tabletL: { max: '768px' },
-      desktopXS: { max: '1024px' },
-      desktopS: { max: '1280px' },
-      desktopM: { max: '1366px' },
-      desktopL: { max: '1536px' },
+      mobileS: '330px',
+      mobileM: '390px',
+      mobileL: '475px',
+      tabletS: '640px',
+      tabletL: '768px',
+      desktopXS: '1024px',
+      desktopS: '1280px',
+      desktopM: '1366px',
+      desktopL: '1536px',
     },
     extend: {
       transitionTimingFunction: {
@@ -41,8 +41,9 @@ const config: Config = {
         source_code_pro: 'SourceCodePro',
       },
       fontSize: {
-        'clamp-lg': 'clamp(40px, 8vw, 80px)',
-        'clamp-md': 'clamp(30px, 2vw, 40px)',
+        'clamp-bg': 'clamp(2rem, 5vw, 5rem)',
+        'clamp-md': 'clamp(1.4rem, 4vw, 4rem)',
+        'clamp-sm': 'clamp(1.2rem, 2.5vw, 3rem)',
       },
       gridTemplateColumns: {
         'responsive-200px': 'repeat(auto-fit, minmax(200px, 1fr))',
@@ -52,7 +53,7 @@ const config: Config = {
         'responsive-400px': 'repeat(auto-fit, minmax(400px, 1fr))',
       },
       dropShadow: {
-        white: '0 0 5px rgba(255,255,255, 1)',
+        glow: '0 0 5px hsl(var(--glow))',
       },
       boxShadow: {
         boxy: '5px 5px 0px 0px hsl(var(--special_1))',
@@ -62,44 +63,15 @@ const config: Config = {
         special_1: 'hsl(var(--special_1))',
         special_2: 'hsl(var(--special_2))',
         detail: 'hsl(var(--detail))',
-        link: 'hsl(var(--link))',
-        'primary-color': 'hsl(var(--primary-color))',
-
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-
         background: 'hsl(var(--background) / <alpha-value>)',
         'background-lighter': 'hsl(var(--background-lighter) / <alpha-value>)',
         foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
+        glow: 'hsl(var(--glow))',
+        'glow-left': 'hsl(var(--glow-left))',
+        'glow-right': 'hsl(var(--glow-right))',
+        'primary-color': 'hsl(var(--primary-color))',
+        border: 'hsl(var(--border))',
+
         'dark-1': {
           federal_blue: {
             DEFAULT: '#120B68',

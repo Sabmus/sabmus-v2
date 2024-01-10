@@ -5,31 +5,6 @@ import options from '@/lib/srConfig';
 import calculateYears from '@/utils/calculateYears';
 import ExperienceTransition from '@/components/section/experience/ExperienceTransition';
 
-interface cssInterface {
-  [key: string]: string;
-}
-
-const ExperienceGlow = ({ idx }: { idx: string }) => {
-  // tailwind h-10 = 2.5rem
-  // TODO: find a way to do it programatically
-  const css: cssInterface = {
-    id0: 'translate-y-0',
-    id1: 'translate-y-[calc(1*2.5rem)]',
-    id2: 'translate-y-[calc(2*2.5rem)]',
-    id3: 'translate-y-[calc(3*2.5rem)]',
-    id4: 'translate-y-[calc(4*2.5rem)]',
-    id5: 'translate-y-[calc(5*2.5rem)]',
-    id6: 'translate-y-[calc(6*2.5rem)]',
-    id7: 'translate-y-[calc(7*2.5rem)]',
-  };
-
-  return (
-    <div
-      className={`absolute rounded-lg inset-0 w-full h-10 -z-10 blur-lg bg-purple-600 ${css[idx]} transform duration-200 delay-100`}
-    ></div>
-  );
-};
-
 const Experience = () => {
   const [activeTab, setActiveTab] = useState(0);
   const revealDiv = useRef(null);
@@ -121,34 +96,37 @@ const Experience = () => {
 
   return (
     <section id="experience">
-      <div ref={revealDiv} className="flex flex-col items-center w-5/6 mx-auto">
-        <h1 className="title">Experience</h1>
+      <div ref={revealDiv} className="flex flex-col items-center w-5/6 mx-auto tabletL:w-2/3 desktopS:w-1/2">
+        <h1 className="title w-full">Experience</h1>
 
-        <div className="flex">
-          <div role="tablist" className="flex flex-col relative w-full max-w-max min-w-max">
+        <div className="flex flex-col w-full gap-7 tabletL:flex-row">
+          <div
+            role="tablist"
+            className="relative flex flex-row overflow-x-auto snap-proximity snap-x w-full max-w-max text-nowrap tabletL:flex-col"
+          >
             {experienceData &&
               experienceData.map((data, i) => {
                 return (
-                  <button
-                    key={i}
-                    id={`tab-${i}`}
-                    role="tab"
-                    tabIndex={activeTab === i ? 0 : -1}
-                    aria-selected={activeTab === i}
-                    aria-controls={`panel-${i}`}
-                    onClick={() => setActiveTab(i)}
-                    className={`px-4 h-10 rounded-lg bg-background transform duration-200 delay-100 ${
-                      activeTab === i ? 'opacity-100 text-special_1' : 'opacity-40'
-                    }`}
-                  >
-                    <span>{data.place}</span>
-                  </button>
+                  <div key={i} className="snap-center">
+                    <button
+                      id={`tab-${i}`}
+                      role="tab"
+                      tabIndex={activeTab === i ? 0 : -1}
+                      aria-selected={activeTab === i}
+                      aria-controls={`panel-${i}`}
+                      onClick={() => setActiveTab(i)}
+                      className={`px-4 h-10 rounded-lg bg-background duration-200 delay-100 hover:text-special_1 ${
+                        activeTab === i ? 'opacity-100' : 'opacity-40 hover:opacity-60'
+                      }`}
+                    >
+                      <span>{data.place}</span>
+                    </button>
+                  </div>
                 );
               })}
-            <ExperienceGlow idx={`id${activeTab.toString()}`} />
           </div>
 
-          <div className="ml-5">
+          <div className="w-full">
             {experienceData &&
               experienceData.map((experienceData, i) => (
                 <ExperienceTransition key={i} experienceData={experienceData} activeTab={activeTab} idx={i} />

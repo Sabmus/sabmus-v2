@@ -5,17 +5,17 @@ const Header = () => {
     <nav className="flex justify-between items-center">
       <div className="flex gap-3 items-center">
         <Logo />
-        <div className="tabletL:hidden">
+        <div className="hidden tabletL:block">
           <NavLinks className="flex gap-4" />
         </div>
       </div>
-      <div className="flex gap-5 tabletL:hidden">
+      <div className="hidden gap-5 tabletL:flex">
         <IconLinks />
       </div>
-      <div className="hidden tabletL:block">
+      <div className="block tabletL:hidden">
         <HamMenu>
           <NavLinks className="flex flex-col gap-5 w-fit mx-auto" />
-          <div className="flex mx-auto gap-3">
+          <div className="mx-auto gap-3 grid grid-cols-2 mobileL:flex">
             <IconLinks />
           </div>
         </HamMenu>

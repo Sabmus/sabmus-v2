@@ -48,7 +48,6 @@ const ExperienceTransition = ({
         aria-labelledby={`tab-${idx}`}
         aria-hidden={activeTab !== idx}
         hidden={activeTab !== idx}
-        className="w-full"
       >
         <h3>
           <span className="text-lg text-special_2">{position}</span>

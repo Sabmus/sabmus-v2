@@ -5,7 +5,7 @@ import options from '@/lib/srConfig';
 import { Terminal } from 'lucide-react';
 import { techMarker } from '@/constants/iconsSize';
 import Image from 'next/image';
-import profilePic from '@/public/images/F3_1_optimized.webp';
+import profilePic from '@/public/images/SimonF3P1.png';
 
 const About = () => {
   const revealDiv = useRef(null);
@@ -30,7 +30,7 @@ const About = () => {
       <div ref={revealDiv} className="flex justify-center items-center w-5/6 mx-auto">
         <div className="flex flex-col">
           <h1 className="title">About me</h1>
-          <div className="grid grid-cols-responsive-200px">
+          <div className="grid grid-cols-responsive-200px gap-7">
             <div className="flex flex-col gap-3">
               <p>
                 Hi! my name is Simón Muñoz Saavedra, I{"'"}m a software engineer from Chile and I love to learn. When I
@@ -62,14 +62,15 @@ const About = () => {
               </div>
             </div>
             <div className="relative flex flex-col items-center">
-              {/** <Image
+              <Image
                 src={profilePic}
                 alt="my-photo"
-                priority
                 quality={90}
-                className="rounded-2xl hover:drop-shadow-white hover:scale-110 hover:brightness-105 transition-all h-80 w-auto"
-              />*/}
-              <span>image here</span>
+                width={400}
+                height={400}
+                priority
+                className="rounded-3xl hover:drop-shadow-glow hover:brightness-105 transition-all"
+              />
             </div>
           </div>
         </div>

@@ -4,44 +4,18 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 35 58% 94%;
     --background-lighter: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --link: 184 100% 55%;
+    --foreground: 0 0% 0%;
 
     --primary-color: 218 96% 67%;
-    --special_1: 184 100% 55%;
-    --special_2: 52 91% 64%;
-    --detail: 140 100% 70%;
+    --special_1: 216 69% 20%;
+    --special_2: 275 86% 34%;
+    --detail: 275 86% 34%;
 
-    --lightest-navy: 218, 41%, 23%;
-    --lightest-slate: 226, 70%, 88%;
+    --glow: 45 99% 66%;
+    --glow-left: 223 98% 54%;
+    --glow-right: 299 98% 38%;
   }
 
   .dark {
@@ -49,42 +23,16 @@
     --background-lighter: 216 65% 10%;
     --foreground: 216 40% 70%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-
-    --link: 184 100% 55%;
-
     --primary-color: 218 96% 67%;
     --special_1: 184 100% 55%;
     --special_2: 52 91% 64%;
     --detail: 140 100% 70%;
 
-    --lightest-navy: 218, 41%, 23%;
-    --lightest-slate: 226, 70%, 88%;
+    --glow: 226 70% 88%;
+    --glow-left: 223 98% 54%;
+    --glow-right: 299 98% 38%;
 
-    --glow: 226, 70%, 88%;
+    --border: 299 98% 23%;
   }
 }
 
@@ -104,7 +52,7 @@
     background: radial-gradient(at 50% 50%, hsl(298, 100%, 15%) 0px, hsl(216, 65%, 10%) 50%) repeat scroll 0% 0%;
   } */
   section {
-    @apply w-full px-0 py-36 max-w-[1300px];
+    @apply w-full px-0 py-24 max-w-[1300px] tabletL:py-32;
   }
   h1,
   h2,
@@ -123,29 +71,31 @@
   .underAnimated:hover::after {
     @apply w-full;
   }
-  .hero {
+  .heroName {
     @apply font-bold text-special_1;
   }
   .big-font {
-    @apply text-clamp-lg;
+    @apply text-clamp-bg;
+  }
+  .mid-font {
+    @apply text-clamp-md;
   }
   .title {
-    @apply text-clamp-md text-special_1 mb-7 text-center;
+    @apply text-clamp-sm text-special_1 mb-10 text-center;
   }
   .icon {
-    @apply text-special_1 hover:scale-110 hover:drop-shadow-white hover:text-white;
+    @apply text-special_1 hover:scale-110 hover:drop-shadow-glow hover:text-glow;
   }
   .jobDescriptionList {
     @apply list-none;
   }
   .jobDescriptionList::before {
-    content: '➣';
-    position: absolute;
-    left: 0;
-    color: hsl(140, 100%, 70%);
+    @apply absolute content-["➣"] left-0 text-detail;
   }
-  #test {
-    width: 100%;
-    max-width: max-content;
+  .glowGradient {
+    @apply bg-gradient-to-r from-glow-left to-glow-right;
+  }
+  .glowBox {
+    @apply -translate-x-1 -translate-y-1 shadow-boxy;
   }
 }
