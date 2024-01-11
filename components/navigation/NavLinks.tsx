@@ -7,15 +7,15 @@ type DivProps = React.HTMLProps<HTMLDivElement>;
 const urls = [
   {
     name: 'About',
-    href: '#about',
+    href: '/#about',
   },
   {
     name: 'Experience',
-    href: '#experience',
+    href: '/#experience',
   },
   {
     name: 'Projects',
-    href: '#projects',
+    href: '/#projects',
   },
 ];
 
@@ -33,11 +33,19 @@ const Nav = async ({ className = '' }: DivProps) => {
           </li>
         ))}
       {session && (
-        <li>
-          <Link href="/projects/create" className="flex items-center gap-1">
-            <span className="underAnimated leading-none text-base">Add Project</span>
-          </Link>
-        </li>
+        <>
+          <div className="border-l-2"></div>
+          <li>
+            <Link href="/experience/create" className="flex items-center gap-1">
+              <span className="underAnimated leading-none text-base">Add Experience</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/projects/create" className="flex items-center gap-1">
+              <span className="underAnimated leading-none text-base">Add Project</span>
+            </Link>
+          </li>
+        </>
       )}
     </ul>
   );

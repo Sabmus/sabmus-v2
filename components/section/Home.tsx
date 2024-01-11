@@ -31,7 +31,7 @@ const Home = () => {
     <section className="h-screen min-h-screen mt-28">
       <div className="flex flex-col justify-center w-5/6 mx-auto">
         <h1 className="heroName big-font">Simón Muñoz Saavedra.</h1>
-        <h2 className="mid-font font-bold">I love web development and motorsports.</h2>
+        <h2 className="mid-font font-bold">I love Web Development and Motorsports.</h2>
         <p className="max-w-[540px] my-10">
           Hi there, I{"'"}m a Software Engineer who start his career as a web developer with PHP, to then work a couple
           of years with data teams. Currently I{"'"}m focused on working as a web developer, since it{"'"}s really what
