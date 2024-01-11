@@ -102,12 +102,12 @@ const Experience = () => {
         <div className="flex flex-col w-full gap-7 tabletL:flex-row">
           <div
             role="tablist"
-            className="relative flex flex-row overflow-x-auto snap-proximity snap-x w-full max-w-max text-nowrap tabletL:flex-col"
+            className="flex flex-row overflow-x-auto snap-proximity snap-x w-full text-nowrap tabletL:flex-col tabletL:max-w-44"
           >
             {experienceData &&
               experienceData.map((data, i) => {
                 return (
-                  <div key={i} className="snap-center">
+                  <div key={i} className="relative snap-center px-2 py-1">
                     <button
                       id={`tab-${i}`}
                       role="tab"
@@ -115,8 +115,8 @@ const Experience = () => {
                       aria-selected={activeTab === i}
                       aria-controls={`panel-${i}`}
                       onClick={() => setActiveTab(i)}
-                      className={`px-4 h-10 rounded-lg bg-background duration-200 delay-100 hover:text-special_1 ${
-                        activeTab === i ? 'opacity-100' : 'opacity-40 hover:opacity-60'
+                      className={`px-4 h-10 rounded-lg duration-200 delay-100 hover:text-special_1 bg-background w-full ${
+                        activeTab === i ? 'text-special_1 opacity-100 glowBox border' : 'opacity-40 hover:opacity-60'
                       }`}
                     >
                       <span>{data.place}</span>
