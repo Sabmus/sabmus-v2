@@ -56,7 +56,7 @@ const config: Config = {
         glow: '0 0 5px hsl(var(--glow))',
       },
       boxShadow: {
-        boxy: '5px 5px 0px 0px hsl(var(--special_1))',
+        boxy: '5px 5px 0px 0px hsl(var(--boxy))',
         glow: '0px 0px 12px 0px hsl(var(--glow))',
       },
       colors: {
@@ -67,10 +67,12 @@ const config: Config = {
         'background-lighter': 'hsl(var(--background-lighter) / <alpha-value>)',
         foreground: 'hsl(var(--foreground))',
         glow: 'hsl(var(--glow))',
+        'text-glow': 'hsl(var(--text-glow))',
         'glow-left': 'hsl(var(--glow-left))',
         'glow-right': 'hsl(var(--glow-right))',
         'primary-color': 'hsl(var(--primary-color))',
         border: 'hsl(var(--border))',
+        header: 'hsl(var(--header) / <alpha-value>)',
 
         'dark-1': {
           federal_blue: {

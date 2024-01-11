@@ -24,7 +24,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
   return (
     <div className="relative group">
       <div className="absolute -inset-2 glowGradient blur opacity-0 transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
-      <div className="relative px-2 py-2 bg-background rounded-md hover:glowBox">
+      <div className="relative px-2 pb-4 pt-2 rounded-md bg-background-lighter hover:glowBox">
         <div className="flex items-center justify-between gap-2">
           <h1 className="text-lg text-special_2">{project.title}</h1>
           <ul className="flex list-none gap-3">

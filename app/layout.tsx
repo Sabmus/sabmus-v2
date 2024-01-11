@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="flex flex-col min-h-screen">
                 <div className="fixed w-full top-3 z-10 flex justify-center">
                   <GlowWrapper className="w-5/6 bg-opacity-5">
-                    <div className="relative w-full py-4 bg-background bg-opacity-70 backdrop-blur-sm rounded-2xl px-10">
+                    <div className="relative w-full py-4 bg-header bg-opacity-85 backdrop-blur-sm rounded-2xl px-10">
                       <Header />
                     </div>
                   </GlowWrapper>

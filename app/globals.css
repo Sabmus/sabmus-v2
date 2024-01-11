@@ -4,31 +4,39 @@
 
 @layer base {
   :root {
-    --background: 35 58% 94%;
+    --background: 0 0% 95%;
     --background-lighter: 0 0% 100%;
     --foreground: 0 0% 0%;
+    --header: 0 0% 100%;
 
     --primary-color: 218 96% 67%;
-    --special_1: 216 69% 20%;
+    --special_1: 211 85% 39%;
     --special_2: 275 86% 34%;
+    --boxy: 0 0% 100%;
     --detail: 275 86% 34%;
 
-    --glow: 45 99% 66%;
-    --glow-left: 223 98% 54%;
-    --glow-right: 299 98% 38%;
+    --glow: 0 0% 95%;
+    --text-glow: 211 61% 48%%;
+    --glow-left: 0 0% 95%;
+    --glow-right: 0 0% 95%;
+
+    --border: 299 98% 23%;
   }
 
   .dark {
     --background: 216 65% 10%;
-    --background-lighter: 216 65% 10%;
+    --background-lighter: 216 65% 15%;
     --foreground: 216 40% 70%;
+    --header: 216 65% 10%;
 
     --primary-color: 218 96% 67%;
     --special_1: 184 100% 55%;
     --special_2: 52 91% 64%;
+    --boxy: 184 100% 55%;
     --detail: 140 100% 70%;
 
     --glow: 226 70% 88%;
+    --text-glow: 226 70% 88%;
     --glow-left: 223 98% 54%;
     --glow-right: 299 98% 38%;
 
@@ -84,7 +92,7 @@
     @apply text-clamp-sm text-special_1 mb-10 text-center;
   }
   .icon {
-    @apply text-special_1 hover:scale-110 hover:drop-shadow-glow hover:text-glow;
+    @apply text-special_1 hover:scale-110 hover:drop-shadow-glow hover:text-text-glow;
   }
   .jobDescriptionList {
     @apply list-none;
