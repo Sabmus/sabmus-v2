@@ -22,6 +22,12 @@
     --glow-right: 0 0% 95%;
 
     --border: 299 98% 23%;
+
+    /* shadcn */
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
   }
 
   .dark {
@@ -43,6 +49,12 @@
     --glow-right: 299 98% 38%;
 
     --border: 299 98% 23%;
+
+    /* shadcn */
+    --accent: 140 100% 70%;
+    --accent-foreground: 216 65% 10%;
+    --muted: 140 100% 70%;
+    --muted-foreground: 216 65% 10%;
   }
 }
 

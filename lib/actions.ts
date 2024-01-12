@@ -23,3 +23,7 @@ export const login = async (prevState: any, formData: FormData) => {
     throw error;
   }
 };
+
+export const createProject = async (prevState: any, formData: FormData) => {
+  console.log('createProject', formData);
+};

@@ -75,6 +75,12 @@ const config: Config = {
         border: 'hsl(var(--border))',
         header: 'hsl(var(--header) / <alpha-value>)',
 
+        /* shadcn */
+        accent: 'hsl(var(--accent))',
+        'accent-foreground': 'hsl(var(--accent-foreground))',
+        muted: 'hsl(var(--muted))',
+        'muted-foreground': 'hsl(var(--muted-foreground))',
+
         'dark-1': {
           federal_blue: {
             DEFAULT: '#120B68',
