@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/auth.config';
+import { auth } from '@/lib/auth';
 import { Github, Linkedin, LogIn, LogOut } from 'lucide-react';
 import { iconSize } from '@/constants/iconsSize';
 import { ThemeSwitcher } from '@/components/theme/ThemeSwitcher';
 
 const IconLinks = async () => {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   return (
     <>

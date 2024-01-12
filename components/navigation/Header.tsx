@@ -1,9 +1,8 @@
 import { Logo, NavLinks, IconLinks, HamMenu } from '@/components/navigation';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/auth.config';
+import { auth } from '@/lib/auth';
 
 const Header = async () => {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   return (
     <nav className="flex justify-between items-center">

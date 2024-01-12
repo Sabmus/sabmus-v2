@@ -1,13 +1,36 @@
-import NextAuth from 'next-auth';
+/*import NextAuth from 'next-auth';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import type { NextAuthOptions } from 'next-auth';
+//import type { NextAuthOptions } from 'next-auth';
 import clientPromise from '@/lib/clientPromise';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import dbConnect from '@/lib/dbConn';
 import User from '@/db/models/User';
 import bcrypt from 'bcrypt';
 
-export const authOptions: NextAuthOptions = {
+const login = async (credentials: any) => {
+  if (!credentials) return null;
+
+  try {
+    await dbConnect();
+    const user = await User.findOne({ email: credentials?.email }).exec();
+    if (!user) {
+      throw new Error('email or password are incorrect.');
+    }
+
+    const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
+
+    if (!isPasswordCorrect) {
+      throw new Error('email or password are incorrect.');
+    }
+
+    delete user.password;
+    return user;
+  } catch (error: any) {
+    throw new Error('something went wrong.', error);
+  }
+};
+
+export const authOptions = {
   //adapter has a warning because MongoDBAdapter should come from @next-auth/mongodb-adapter
   //but in the docs they use @auth/mongodb-adapter
   // @ts-ignore
@@ -24,42 +47,17 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password', placeholder: 'enter your password.' },
       },
       async authorize(credentials) {
-        if (!credentials) return null;
-
-        await dbConnect();
-
         try {
-          const user = await User.findOne({ email: credentials?.email }).exec();
-          if (!user) return null;
-
-          const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
-
-          if (!isPasswordCorrect) {
-            throw new Error('email or password are incorrect.');
-          }
-
-          delete user.password;
+          const user = await login(credentials);
           return user;
-        } catch (error: any) {
-          throw new Error('something went wrong.', error);
+        } catch (error) {
+          return null;
         }
       },
     }),
   ],
-  /*   pages: {
-    signIn: '/login',
-  }, */
+
   callbacks: {
-    /* async jwt({ token, user }: any) {
-      if (user) {
-        token.user = {
-          _id: user.id,
-          email: user.email,
-          name: user.name,
-        };
-      }
-      return token;
-    }, */
     async session({ session, token }: any) {
       if (token) {
         session.user = {
@@ -74,3 +72,17 @@ export const authOptions: NextAuthOptions = {
 };
 
 export default NextAuth(authOptions);
+*/
+
+export const authConfig = {
+  pages: {
+    signIn: '/login',
+  },
+  providers: [],
+  callbacks: {
+    authorized({ auth, request }) {
+      console.log('from auth.config: ', auth);
+      return true;
+    },
+  },
+};

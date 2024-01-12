@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/auth.config';
+import { auth } from '@/lib/auth';
 
 type DivProps = React.HTMLProps<HTMLDivElement>;
 
@@ -20,7 +19,7 @@ const urls = [
 ];
 
 const Nav = async ({ className = '' }: DivProps) => {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   return (
     <ul className={`list-none ${className}`} tabIndex={-1}>
