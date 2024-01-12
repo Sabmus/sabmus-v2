@@ -6,27 +6,16 @@ import dbConnect from '@/lib/dbConn';
 import User from '@/db/models/User';
 import bcrypt from 'bcrypt';
 import { authConfig } from '@/app/api/auth/[...nextauth]/auth.config';
+import { z } from 'zod';
 // import GitHub from 'next-auth/providers/github';
 
-const login = async (credentials: any) => {
+const getUser = async (email: string) => {
   try {
     await dbConnect();
-
-    const user = await User.findOne({ email: credentials?.email }).exec();
-    if (!user) {
-      throw new Error('email or password are incorrect.');
-    }
-
-    const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
-
-    if (!isPasswordCorrect) {
-      throw new Error('email or password are incorrect.');
-    }
-
-    delete user.password;
+    const user = await User.findOne({ email }).exec();
     return user;
-  } catch (error: any) {
-    throw new Error('something went wrong.', error);
+  } catch (error) {
+    throw new Error('Something went wrong.');
   }
 };
 
@@ -45,27 +34,28 @@ export const {
     CredentialsProvider({
       name: 'Credentials',
       id: 'credentials',
-      async authorize(credentials: any) {
-        try {
-          await dbConnect();
+      async authorize(credentials) {
+        const parsedCredentials = z
+          .object({
+            email: z.string().email(),
+            password: z.string().min(4),
+          })
+          .safeParse(credentials);
 
-          const user = await User.findOne({ email: credentials?.email }).exec();
-          if (!user) {
-            throw new Error('email or password are incorrect.');
-          }
+        if (!parsedCredentials.success) return null;
 
-          const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
+        const { email, password } = parsedCredentials.data;
 
-          if (!isPasswordCorrect) {
-            throw new Error('email or password are incorrect.');
-          }
+        const user = await getUser(email);
 
-          delete user.password;
-          return user;
-        } catch (error) {
-          console.log('🚀 ~ authorize ~ error:', error);
-        }
-        return null;
+        if (!user) return null;
+
+        const isPasswordCorrect = await bcrypt.compare(password, user.password);
+
+        if (!isPasswordCorrect) return null;
+
+        delete user.password;
+        return user;
       },
     }),
   ],

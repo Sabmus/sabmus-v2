@@ -3,6 +3,7 @@ import { auth } from '@/lib/auth';
 import { Github, Linkedin, LogIn, LogOut } from 'lucide-react';
 import { iconSize } from '@/constants/iconsSize';
 import { ThemeSwitcher } from '@/components/theme/ThemeSwitcher';
+import { signOut } from '@/lib/auth';
 
 const IconLinks = async () => {
   const session = await auth();
@@ -17,13 +18,23 @@ const IconLinks = async () => {
       </a>
       <ThemeSwitcher />
       {!session ? (
-        <Link href="/api/auth/signin?callbackUrl=/">
+        <Link href="/login">
           <LogIn size={iconSize} className="icon" />
         </Link>
       ) : (
-        <Link href="/api/auth/signout?callbackUrl=/">
-          <LogOut size={iconSize} className="icon" />
-        </Link>
+        // <Link href="/api/auth/signout?callbackUrl=/">
+        //   <LogOut size={iconSize} className="icon" />
+        // </Link>
+        <form
+          action={async () => {
+            'use server';
+            await signOut();
+          }}
+        >
+          <button>
+            <LogOut size={iconSize} className="icon" />
+          </button>
+        </form>
       )}
     </>
   );

@@ -80,8 +80,15 @@ export const authConfig = {
   },
   providers: [],
   callbacks: {
-    authorized({ auth, request }) {
-      console.log('from auth.config: ', auth);
+    authorized({ auth, request }: { auth: any; request: any }) {
+      console.log('🚀 ~ authorized ~ auth:', auth);
+
+      const isOnLoginPage = request.nextUrl?.pathname.startsWith('/login');
+
+      if (isOnLoginPage && auth?.user) {
+        return Response.redirect(new URL('/', request.nextUrl));
+      }
+
       return true;
     },
   },
