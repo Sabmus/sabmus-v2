@@ -81,12 +81,17 @@ export const authConfig = {
   providers: [],
   callbacks: {
     authorized({ auth, request }: { auth: any; request: any }) {
-      console.log('🚀 ~ authorized ~ auth:', auth);
+      const user = auth?.user;
 
       const isOnLoginPage = request.nextUrl?.pathname.startsWith('/login');
+      const isOnAdminPage = request.nextUrl?.pathname.startsWith('/admin');
 
-      if (isOnLoginPage && auth?.user) {
+      if (isOnLoginPage && user) {
         return Response.redirect(new URL('/', request.nextUrl));
+      }
+
+      if (isOnAdminPage && !user) {
+        return false;
       }
 
       return true;

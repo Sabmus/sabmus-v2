@@ -35,13 +35,8 @@ const Nav = async ({ className = '' }: DivProps) => {
         <>
           <div className="border-l-2"></div>
           <li>
-            <Link href="/experience/create" className="flex items-center gap-1">
-              <span className="underAnimated leading-none text-base">Add Experience</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/projects/create" className="flex items-center gap-1">
-              <span className="underAnimated leading-none text-base">Add Project</span>
+            <Link href="/admin" className="flex items-center gap-1">
+              <span className="underAnimated leading-none text-base">Admin Panel</span>
             </Link>
           </li>
         </>

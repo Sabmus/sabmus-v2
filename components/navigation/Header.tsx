@@ -5,7 +5,7 @@ const Header = async () => {
   const session = await auth();
 
   return (
-    <nav className="flex justify-between items-center">
+    <nav className="flex justify-between items-center h-9">
       <div className="flex gap-3 items-center">
         <Logo />
         <div className={`hidden ${session ? 'desktopXS:block' : 'tabletL:block'}`}>

@@ -14,6 +14,7 @@
     --special_2: 275 86% 34%;
     --boxy: 0 0% 100%;
     --detail: 275 86% 34%;
+    --detail-lighter: 275 86% 44%;
 
     --glow: 0 0% 95%;
     --text-glow: 211 61% 48%%;
@@ -34,6 +35,7 @@
     --special_2: 52 91% 64%;
     --boxy: 184 100% 55%;
     --detail: 140 100% 70%;
+    --detail-lighter: 140 100% 80%;
 
     --glow: 226 70% 88%;
     --text-glow: 226 70% 88%;
@@ -70,6 +72,9 @@
 }
 
 @layer components {
+  .btn {
+    @apply text-detail border border-detail rounded-md py-1 hover:text-special_1 hover:border-special_1;
+  }
   .underAnimated {
     @apply relative text-sm text-special_1 w-fit;
   }
@@ -105,5 +110,11 @@
   }
   .glowBox {
     @apply -translate-x-1 -translate-y-1 shadow-boxy;
+  }
+  .conicGradientTw {
+    @apply animate-moving-around opacity-50 bg-[conic-gradient(from_0deg_at_50%_50%,_rgb(255,_255,_255)_0.190351deg,_rgba(255,_255,_255,_0)_53.2425deg,_rgba(255,_255,_255,_0)_306deg,_rgb(255,_255,_255)_360deg)];
+  }
+  .adminTitle {
+    @apply font-bold text-xl text-special_1;
   }
 }
