@@ -21,7 +21,7 @@ const ProjectForm = () => {
           id="description"
           rows={5}
           placeholder="Project description"
-          className="peer bg-transparent min-h-[auto] w-full rounded-lg text-gray-200 placeholder-transparent ring-2 px-2 ring-gray-500 focus:ring-sky-600 focus:outline-none focus:border-rose-600"
+          className="peer bg-transparent min-h-[auto] w-full rounded-lg text-gray-200 placeholder-transparent ring-2 px-2 pt-2 ring-gray-500 focus:ring-sky-600 focus:outline-none focus:border-rose-600"
         ></textarea>
         <label
           htmlFor="description"
@@ -43,7 +43,7 @@ const ProjectForm = () => {
         </ToggleGroupItem>
       </ToggleGroup>
 
-      <div className="flex flex-col gap-3 w-full">
+      <div className="flex flex-col gap-5 w-full">
         <div className="flex gap-4 items-center">
           <Github size={30} />
           <Input id="github-link" type="text" name="github-link" placeholder="Github link" />

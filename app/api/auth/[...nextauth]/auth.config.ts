@@ -80,7 +80,23 @@ export const authConfig = {
   },
   providers: [],
   callbacks: {
+    /*     async jwt({ token, user }: { token: any; user: any }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    }, */
+    async session({ session, token }: { session: any; token: any }) {
+      if (token) {
+        session.user = {
+          ...session.user,
+          id: token.id,
+        };
+      }
+      return session;
+    },
     authorized({ auth, request }: { auth: any; request: any }) {
+      console.log('🚀 ~ authorized ~ auth:', auth);
       const user = auth?.user;
 
       const isOnLoginPage = request.nextUrl?.pathname.startsWith('/login');
