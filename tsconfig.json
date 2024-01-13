@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "hooks/usePrefersReduceMotion.js",
-    "hooks/useOnClickOutside.js"
+    "hooks/useOnClickOutside.js",
+    "db/seed.js"
   ],
   "exclude": ["node_modules"]
 }
