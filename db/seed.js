@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-require.dotenv.config({ path: '../.env.local' });
+require('dotenv').config({ path: '.env.local' });
 
-const techSchema = new Schema(
+const techSchema = new mongoose.Schema(
   {
     name: String,
   },
