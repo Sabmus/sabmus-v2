@@ -1,8 +1,11 @@
 import { MoveLeft } from 'lucide-react';
 import Link from 'next/link';
 import ProjectForm from '@/components/section/projects/ProjectForm';
+import { getTechs } from '@/lib/actions';
 
-const CreateProject = () => {
+const CreateProject = async () => {
+  const techList = (await getTechs()).map(tech => JSON.parse(JSON.stringify(tech)));
+
   return (
     <div className="relative flex flex-col items-center h-full">
       <div className="mb-2">
@@ -11,8 +14,8 @@ const CreateProject = () => {
         </Link>
         <h1 className="adminTitle">New Project</h1>
       </div>
-      <div className="h-full w-full tabletL:w-1/3">
-        <ProjectForm />
+      <div className="h-full w-full tabletL:w-2/3 desktopS:w-1/3 desktopM:w-2/5">
+        <ProjectForm techList={techList} />
       </div>
     </div>
   );

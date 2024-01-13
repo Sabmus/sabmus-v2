@@ -5,14 +5,35 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Github, ExternalLink } from 'lucide-react';
 import { createProject } from '@/lib/actions';
 import { useFormState } from 'react-dom';
+import { useState } from 'react';
 
-const ProjectForm = () => {
+interface ITechs {
+  [key: string]: boolean;
+}
+interface ITechlist {
+  _id: string;
+  name: string;
+}
+
+const ProjectForm = ({ techList }: { techList: ITechlist[] }) => {
   const [state, formAction] = useFormState(createProject, undefined);
+  const [techs, setTechs] = useState<ITechs>({});
+
+  const handleClick = (id: string) => {
+    setTechs(prevState => {
+      if (prevState[id]) {
+        delete prevState[id];
+        return { ...prevState };
+      } else {
+        return { ...prevState, [id]: true };
+      }
+    });
+  };
 
   return (
     <form
       action={formAction}
-      className="flex flex-col gap-5 border border-purple-800 rounded-md p-5 bg-background-lighter"
+      className="flex flex-col gap-5 border w-full h-full border-purple-800 rounded-md p-5 bg-background-lighter"
     >
       <Input id="name" type="text" name="title" placeholder="Title" />
       <div className="relative bg-background-lighter">
@@ -21,7 +42,7 @@ const ProjectForm = () => {
           id="description"
           rows={5}
           placeholder="Project description"
-          className="peer bg-transparent min-h-[auto] w-full rounded-lg text-gray-200 placeholder-transparent ring-2 px-2 pt-2 ring-gray-500 focus:ring-sky-600 focus:outline-none focus:border-rose-600"
+          className="peer bg-transparent min-h-10 w-full rounded-lg text-gray-200 placeholder-transparent ring-2 px-2 pt-2 ring-gray-500 focus:ring-sky-600 focus:outline-none focus:border-rose-600"
         ></textarea>
         <label
           htmlFor="description"
@@ -31,26 +52,31 @@ const ProjectForm = () => {
         </label>
       </div>
 
-      <ToggleGroup type="multiple">
-        <ToggleGroupItem value="a" name="a" className="h-7">
-          Javascript
-        </ToggleGroupItem>
-        <ToggleGroupItem value="b" name="b" className="h-7">
-          React
-        </ToggleGroupItem>
-        <ToggleGroupItem value="c" name="c" className="h-7">
-          Node
-        </ToggleGroupItem>
+      <ToggleGroup type="multiple" className="flex justify-start items-center flex-wrap">
+        {techList &&
+          techList.map((tech, i) => (
+            <ToggleGroupItem
+              key={i}
+              value={tech.name}
+              name={tech.name}
+              onClick={() => handleClick(tech._id)}
+              className="h-7 w-fit"
+            >
+              {tech.name}
+            </ToggleGroupItem>
+          ))}
       </ToggleGroup>
+
+      <input type="hidden" name="techs" value={JSON.stringify(techs)} />
 
       <div className="flex flex-col gap-5 w-full">
         <div className="flex gap-4 items-center">
           <Github size={30} />
-          <Input id="github-link" type="text" name="github-link" placeholder="Github link" />
+          <Input id="githubLink" type="text" name="githubLink" placeholder="Github link" />
         </div>
         <div className="flex gap-4 items-center">
           <ExternalLink size={30} />
-          <Input id="demo-link" type="text" name="demo-link" placeholder="Demo link" />
+          <Input id="demoLink" type="text" name="demoLink" placeholder="Demo link" />
         </div>
       </div>
 
