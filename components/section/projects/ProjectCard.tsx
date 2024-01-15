@@ -1,5 +1,6 @@
 import { ExternalLink, Github } from 'lucide-react';
 import { projectIcons } from '@/constants/iconsSize';
+import Badge from '@/components/ui/Badge';
 
 interface ProjectInterface {
   title: string;
@@ -45,9 +46,7 @@ const ProjectCard = ({ project }: { project: ProjectInterface }) => {
           {project.techs &&
             project.techs.map(tech => (
               <li key={tech}>
-                <span className="font-mono inline-flex items-center border border-detail rounded-lg px-2 text-sm font-semibold">
-                  {tech}
-                </span>
+                <Badge name={tech} />
               </li>
             ))}
         </ul>

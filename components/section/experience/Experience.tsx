@@ -115,8 +115,10 @@ const Experience = () => {
                       aria-selected={activeTab === i}
                       aria-controls={`panel-${i}`}
                       onClick={() => setActiveTab(i)}
-                      className={`px-4 h-10 rounded-lg duration-200 delay-100 hover:text-special_1 bg-background w-full ${
-                        activeTab === i ? 'text-special_1 opacity-100 glowBox border' : 'opacity-40 hover:opacity-60'
+                      className={`px-4 h-10 rounded-lg duration-200 hover:text-special_1 bg-background w-full ${
+                        activeTab === i
+                          ? 'text-special_1 opacity-100 glowBox border border-border'
+                          : 'opacity-40 hover:opacity-60 border-transparent'
                       }`}
                     >
                       <span>{data.place}</span>

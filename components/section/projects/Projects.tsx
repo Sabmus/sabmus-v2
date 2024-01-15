@@ -88,7 +88,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects">
+    <section id="projects" className="mb-40">
       <div ref={revealDiv} className="flex flex-col w-5/6 mx-auto">
         <h1 className="title">Projects</h1>
 

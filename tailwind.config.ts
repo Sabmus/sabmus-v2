@@ -74,6 +74,8 @@ const config: Config = {
         'primary-color': 'hsl(var(--primary-color))',
         border: 'hsl(var(--border))',
         header: 'hsl(var(--header) / <alpha-value>)',
+        'gradient-1': 'hsl(var(--gradient-1))',
+        'gradient-2': 'hsl(var(--gradient-2))',
 
         /* shadcn */
         accent: 'hsl(var(--accent))',
@@ -229,6 +231,10 @@ const config: Config = {
           '75%': { transform: 'translateX(-120px) rotate(0deg)' },
           '100%': { transform: 'translateX(-120px) rotate(-180deg)' },
         },
+        'reveal-hide': {
+          '0%, 100%': { opacity: '0' },
+          '20%, 80%': { opacity: '1' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -242,6 +248,7 @@ const config: Config = {
         capitalize: 'capitalize 2.5s 1',
         tilt: 'tilt 10s linear infinite',
         'moving-around': 'moving-around 4s linear infinite',
+        'reveal-hide': 'reveal-hide 1.5s linear',
       },
     },
   },

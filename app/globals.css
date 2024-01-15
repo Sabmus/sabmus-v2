@@ -4,24 +4,26 @@
 
 @layer base {
   :root {
-    --background: 0 0% 95%;
-    --background-lighter: 0 0% 100%;
+    --background: 216 65% 90%;
+    --background-lighter: 216 65% 90%;
     --foreground: 0 0% 0%;
-    --header: 0 0% 100%;
+    --header: 216 65% 90%;
 
-    --primary-color: 218 96% 67%;
-    --special_1: 211 85% 39%;
-    --special_2: 275 86% 34%;
-    --boxy: 0 0% 100%;
-    --detail: 275 86% 34%;
-    --detail-lighter: 275 86% 44%;
+    --primary-color: 0 0% 0%;
+    --special_1: 216 100% 40%;
+    --special_2: 216 100% 40%;
+    --boxy: 12 91% 46%;
+    --detail: 12 91% 46%;
+    --detail-lighter: 12 91% 46%;
 
-    --glow: 0 0% 95%;
-    --text-glow: 211 61% 48%%;
-    --glow-left: 0 0% 95%;
-    --glow-right: 0 0% 95%;
+    --glow: 0 0% 100%;
+    --text-glow: 216 100% 55%;
+    --glow-left: 215 99% 65%;
+    --glow-right: 215 99% 45%;
 
-    --border: 299 98% 23%;
+    --border: 216 100% 40%;
+    --gradient-1: 0 0% 90%;
+    --gradient-2: 216 65% 90%;
 
     /* shadcn */
     --accent: 210 40% 96.1%;
@@ -45,10 +47,12 @@
 
     --glow: 226 70% 88%;
     --text-glow: 226 70% 88%;
-    --glow-left: 223 98% 54%;
-    --glow-right: 299 98% 38%;
+    --glow-left: 299 98% 38%;
+    --glow-right: 223 98% 54%;
 
-    --border: 299 98% 23%;
+    --border: 180 100% 50%;
+    --gradient-1: 298 100% 15%;
+    --gradient-2: 216 65% 10%;
 
     /* shadcn */
     --accent: 140 100% 70%;
@@ -70,8 +74,11 @@
   body {
     @apply w-full min-h-screen bg-background text-foreground;
   }
+  body {
+    background: radial-gradient(at 50% 50%, hsl(var(--gradient-1)) 0px, hsl(var(--gradient-2)) 50%) repeat scroll 0% 0%;
+  }
   /*   body {
-    background: radial-gradient(at 50% 50%, hsl(298, 100%, 15%) 0px, hsl(216, 65%, 10%) 50%) repeat scroll 0% 0%;
+    @apply bg-[radial-gradient(at_50%_50%,_hsl(var(--gradient-1))_0px,_hsl(var(--gradient-2))_50%)_repeat_scroll_0%_0%];
   } */
   section {
     @apply w-full px-0 py-24 max-w-[1300px] tabletL:py-32;

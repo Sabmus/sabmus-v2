@@ -29,15 +29,9 @@ const Menu = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      {/* <div
-        id="blurry"
-        className={`${
-          isOpen ? 'block' : 'hidden opacity-0'
-        } absolute -top-3 -left-10 -z-10 w-screen h-screen bg-background/90 transition duration-200`}
-      ></div> */}
       <div ref={wrapperRef} className="flex items-center">
         <button onClick={handleOpen} className="relative z-30">
-          <ChevronDownCircle size={30} className={`transition duration-200 ${rotate}`} />
+          <ChevronDownCircle size={30} className={`text-detail transition duration-200 ${rotate}`} />
         </button>
         <aside
           aria-hidden={!isOpen}

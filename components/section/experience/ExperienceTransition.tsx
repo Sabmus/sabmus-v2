@@ -2,6 +2,7 @@
 
 import { CSSTransition } from 'react-transition-group';
 import { useRef } from 'react';
+import Badge from '@/components/ui/Badge';
 
 interface ExperienceData {
   place: string;
@@ -61,11 +62,21 @@ const ExperienceTransition = ({
         <p>
           <span>{range}</span> <span>({years})</span>
         </p>
-        <div>
+        <div className="mb-3">
           <ul>
             {description.map((ele, j) => (
               <li key={j} className="relative jobDescriptionList pl-7">
                 {ele}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="text-special_1 font-semibold">Technologies</p>
+          <ul className="flex flex-wrap gap-2">
+            {experienceData.techs.map((ele, j) => (
+              <li key={j}>
+                <Badge name={ele} />
               </li>
             ))}
           </ul>

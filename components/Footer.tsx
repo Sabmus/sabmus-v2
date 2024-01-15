@@ -2,10 +2,18 @@ const Footer = () => {
   return (
     <footer className="flex justify-center py-3">
       <p>
-        Made with 💖 by{' '}
-        <a href="https://github.com/sabmus" className="underAnimated" target="_blank" rel="noopener noreferrer">
-          Sabmus
-        </a>{' '}
+        Made with{' '}
+        <a href="https://nextjs.org/" target="_blanck" className="underAnimated" rel="noopener noreferrer">
+          NextJS
+        </a>
+        {', '}
+        <a href="https://www.mongodb.com/" target="_blanck" className="underAnimated" rel="noopener noreferrer">
+          MongoDB
+        </a>
+        {' and '}
+        <a href="https://tailwindcss.com/" target="_blanck" className="underAnimated" rel="noopener noreferrer">
+          TailwindCss
+        </a>
       </p>
     </footer>
   );
