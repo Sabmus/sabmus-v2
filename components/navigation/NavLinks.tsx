@@ -26,9 +26,9 @@ const Nav = async ({ className = '' }: DivProps) => {
       {urls &&
         urls.map((url, i) => (
           <li key={i}>
-            <Link href={url.href} className="flex items-center gap-1">
+            <a href={url.href} className="flex items-center gap-1">
               <span className="underAnimated leading-none text-base">{url.name}</span>
-            </Link>
+            </a>
           </li>
         ))}
       {session && (
