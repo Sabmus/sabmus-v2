@@ -1,8 +1,5 @@
-'use client';
-
-import { useRef, useEffect } from 'react';
 import ProjectCard from './ProjectCard';
-import options from '@/lib/srConfig';
+import DynamicReveal from '@/components/RevealComp';
 
 const projectsList = [
   {
@@ -72,30 +69,16 @@ const projectsList = [
 ];
 
 const Projects = () => {
-  const revealDiv = useRef(null);
-
-  /**
-   * https://github.com/jlmakes/scrollreveal/issues/541
-   */
-  useEffect(() => {
-    async function animate() {
-      if (revealDiv.current) {
-        const sr = (await import('@/lib/sr')).default;
-        sr.reveal(revealDiv.current, options());
-      }
-    }
-    animate();
-  }, []);
-
   return (
     <section id="projects" className="mb-40">
-      <div ref={revealDiv} className="flex flex-col w-5/6 mx-auto">
-        <h1 className="title">Projects</h1>
-
-        <div className="grid grid-cols-responsive-220px gap-4">
-          {projectsList && projectsList.map((project, idx) => <ProjectCard key={idx} project={project} />)}
+      <DynamicReveal>
+        <div className="flex flex-col w-5/6 mx-auto">
+          <h1 className="title">Projects</h1>
+          <div className="grid grid-cols-responsive-220px gap-4">
+            {projectsList && projectsList.map((project, idx) => <ProjectCard key={idx} project={project} />)}
+          </div>
         </div>
-      </div>
+      </DynamicReveal>
     </section>
   );
 };

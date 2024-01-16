@@ -1,13 +1,12 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import options from '@/lib/srConfig';
+import { useState } from 'react';
 import calculateYears from '@/utils/calculateYears';
 import ExperienceTransition from '@/components/section/experience/ExperienceTransition';
+import DynamicReveal from '@/components/RevealComp';
 
 const Experience = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const revealDiv = useRef(null);
 
   const experienceData = [
     {
@@ -81,61 +80,50 @@ const Experience = () => {
     },
   ];
 
-  /**
-   * https://github.com/jlmakes/scrollreveal/issues/541
-   */
-  useEffect(() => {
-    async function animate() {
-      if (revealDiv.current) {
-        const sr = (await import('@/lib/sr')).default;
-        sr.reveal(revealDiv.current, options());
-      }
-    }
-    animate();
-  }, []);
-
   return (
     <section id="experience">
-      <div ref={revealDiv} className="flex flex-col items-center w-5/6 mx-auto tabletL:w-2/3 desktopS:w-1/2">
-        <h1 className="title w-full">Experience</h1>
+      <DynamicReveal>
+        <div className="flex flex-col items-center w-5/6 mx-auto tabletL:w-2/3 desktopS:w-1/2">
+          <h1 className="title w-full">Experience</h1>
 
-        <div className="flex flex-col w-full gap-7 tabletL:flex-row">
-          <div
-            role="tablist"
-            className="flex flex-row overflow-x-auto snap-proximity snap-x w-full text-nowrap tabletL:flex-col tabletL:max-w-44"
-          >
-            {experienceData &&
-              experienceData.map((data, i) => {
-                return (
-                  <div key={i} className="relative snap-center px-2 py-1">
-                    <button
-                      id={`tab-${i}`}
-                      role="tab"
-                      tabIndex={activeTab === i ? 0 : -1}
-                      aria-selected={activeTab === i}
-                      aria-controls={`panel-${i}`}
-                      onClick={() => setActiveTab(i)}
-                      className={`px-4 h-10 rounded-lg duration-200 hover:text-special_1 bg-background w-full ${
-                        activeTab === i
-                          ? 'text-special_1 opacity-100 glowBox border border-border'
-                          : 'opacity-40 hover:opacity-60 border-transparent'
-                      }`}
-                    >
-                      <span>{data.place}</span>
-                    </button>
-                  </div>
-                );
-              })}
-          </div>
+          <div className="flex flex-col w-full gap-7 tabletL:flex-row">
+            <div
+              role="tablist"
+              className="flex flex-row overflow-x-auto snap-proximity snap-x w-full text-nowrap tabletL:flex-col tabletL:max-w-44"
+            >
+              {experienceData &&
+                experienceData.map((data, i) => {
+                  return (
+                    <div key={i} className="relative snap-center px-2 py-1">
+                      <button
+                        id={`tab-${i}`}
+                        role="tab"
+                        tabIndex={activeTab === i ? 0 : -1}
+                        aria-selected={activeTab === i}
+                        aria-controls={`panel-${i}`}
+                        onClick={() => setActiveTab(i)}
+                        className={`px-4 h-10 rounded-lg duration-200 hover:text-special_1 bg-background w-full ${
+                          activeTab === i
+                            ? 'text-special_1 opacity-100 glowBox border border-border'
+                            : 'opacity-40 hover:opacity-60 border-transparent'
+                        }`}
+                      >
+                        <span>{data.place}</span>
+                      </button>
+                    </div>
+                  );
+                })}
+            </div>
 
-          <div className="w-full">
-            {experienceData &&
-              experienceData.map((experienceData, i) => (
-                <ExperienceTransition key={i} experienceData={experienceData} activeTab={activeTab} idx={i} />
-              ))}
+            <div className="w-full">
+              {experienceData &&
+                experienceData.map((experienceData, i) => (
+                  <ExperienceTransition key={i} experienceData={experienceData} activeTab={activeTab} idx={i} />
+                ))}
+            </div>
           </div>
         </div>
-      </div>
+      </DynamicReveal>
     </section>
   );
 };

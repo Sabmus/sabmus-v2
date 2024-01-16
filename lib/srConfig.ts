@@ -5,6 +5,7 @@ const options = (delay = 200, viewFactor = 0.3, origin = 'bottom') => ({
   origin,
   delay,
   viewFactor,
+  //cleanup: true,
 });
 
 export default options;
