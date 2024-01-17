@@ -14,11 +14,11 @@ const iconSwitch = (exp: string) => {
 
 const ProjectCard = ({ project }: { project: ProjectInterface }) => {
   return (
-    <div className="relative group h-fit">
+    <div className="relative group h-full">
       <div className="absolute -inset-2 glowGradient blur opacity-0 transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
-      <div className="relative px-2 pb-4 pt-2 rounded-md bg-background-lighter hover:glowBox h-56">
+      <div className="relative px-2 pb-4 pt-2 rounded-md bg-background-lighter hover:glowBox h-full">
         <div className="flex flex-col h-full">
-          <div className="flex-sticky-footer">
+          <div className="flex-sticky-footer mb-4">
             <div className="flex items-center justify-between gap-2">
               <h1 className="text-lg text-special_2">{project.title}</h1>
               <ul className="flex list-none gap-3">
