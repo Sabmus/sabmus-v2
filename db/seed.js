@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 require('dotenv').config({ path: '.env.local' });
 
 const techSchema = new mongoose.Schema(
@@ -11,6 +12,21 @@ const techSchema = new mongoose.Schema(
 );
 
 const Tech = mongoose.model('Tech', techSchema);
+
+const userSchema = new mongoose.Schema(
+  {
+    name: String,
+    email: String,
+    password: String,
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const User = mongoose.model('User', userSchema);
+const adminPassword = process.env.ADMIN_PASSWORD;
+const adminEmail = process.env.ADMIN_EMAIL;
 
 const dbConnect = async () => {
   mongoose.connection.on('connected', () => console.log('connected'));
@@ -59,9 +75,20 @@ const techs = [
 
 const seedDb = async () => {
   try {
+    console.log('seeding techs...');
     await dbConnect();
     await Tech.deleteMany({});
     await Tech.insertMany(techs);
+
+    // User: the only one
+    //console.log('seeding user...');
+    //const hashedPassword = await bcrypt.hash(adminPassword, 31);
+    //await User.create({
+    //  name: 'Simón Muñoz Saavedra',
+    //  email: adminEmail,
+    //  password: hashedPassword,
+    //});
+
     console.log('seeded');
   } catch (error) {
     console.log(error);
