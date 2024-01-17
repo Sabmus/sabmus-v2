@@ -15,8 +15,8 @@ const ProjectFormSchema = z.object({
   title: z.string().min(4),
   description: z.string().min(10),
   techs: z.string().regex(/^\{"[0-9a-f]{24}":true(,"[0-9a-f]{24}":true)*\}$/),
-  githubLink: z.string().url(),
-  demoLink: z.string().url(),
+  githubLink: z.union([z.literal(''), z.string().url()]),
+  demoLink: z.union([z.literal(''), z.string().url()]),
 });
 
 const CreateProject = ProjectFormSchema.omit({ _id: true });
@@ -55,7 +55,6 @@ export const login = async (prevState: any, formData: FormData) => {
 
 export const createProject = async (prevState: ProjectState, formData: FormData) => {
   const session = await auth();
-  console.log('🚀 ~ createProject ~ session:', session);
 
   const validateFields = CreateProject.safeParse({
     title: formData.get('title'),
@@ -104,4 +103,16 @@ export const createProject = async (prevState: ProjectState, formData: FormData)
 
   revalidatePath('/admin/projects');
   redirect('/admin/projects');
+};
+
+export const deleteProject = async (id: string) => {
+  try {
+    await dbConnect();
+    await Project.findByIdAndDelete(id);
+    revalidatePath('/admin/projects');
+  } catch (error) {
+    console.log(error);
+    mongoose.connection.close();
+    return { message: 'Database error.' };
+  }
 };

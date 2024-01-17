@@ -22,7 +22,7 @@ export const getProjects = async () => {
 
   try {
     await dbConnect();
-    const projects = await Project.find({}).populate('techs').lean();
+    const projects = await Project.find({}, { author: 0, __v: 0, createdAt: 0, updatedAt: 0 }).populate('techs').lean();
     return projects;
   } catch (error) {
     console.log(error);

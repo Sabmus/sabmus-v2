@@ -1,13 +1,25 @@
 import Link from 'next/link';
 import { getProjects } from '@/lib/data';
-
+import { deleteProject } from '@/lib/actions';
 import { Key } from 'react';
 import { Settings2, X, Github, ExternalLink } from 'lucide-react';
 import Badge from '@/components/ui/Badge';
+import { ProjectInterface } from '@/lib/definitions';
+
+const DeleteProject = ({ id }: { id: string }) => {
+  const deleteProjectWithId = deleteProject.bind(null, id);
+
+  return (
+    <form action={deleteProjectWithId} className="leading-none">
+      <button>
+        <X className="text-red-500 hover:scale-110" />
+      </button>
+    </form>
+  );
+};
 
 const Projects = async () => {
-  const projects = await getProjects();
-  console.log('🚀 ~ Projects ~ projects:', projects);
+  const projects = (await getProjects()) as ProjectInterface[];
 
   return (
     <div>
@@ -28,9 +40,7 @@ const Projects = async () => {
                   <Link href={`/admin/projects/${project._id}/edit`}>
                     <Settings2 className="hover:scale-110" />
                   </Link>
-                  <Link href={`/admin/projects/${project._id}/delete`}>
-                    <X className="text-red-500 hover:scale-110" />
-                  </Link>
+                  <DeleteProject id={project._id.toString()} />
                 </div>
               </div>
               {/** body */}
@@ -111,16 +121,13 @@ const Projects = async () => {
                     ))}
                   </td>
                   <td className="text-center">
-                    <span>
+                    <div className="flex justify-center items-center">
                       <Link href={`/admin/projects/${project._id}/edit`} className="inline-block align-middle">
                         <Settings2 className="hover:scale-110" />
                       </Link>
-                    </span>
-                    <span>
-                      <Link href={`/admin/projects/${project._id}/delete`} className="inline-block align-middle">
-                        <X className="text-red-500 hover:scale-110" />
-                      </Link>
-                    </span>
+
+                      <DeleteProject id={project._id.toString()} />
+                    </div>
                   </td>
                 </tr>
               ))}

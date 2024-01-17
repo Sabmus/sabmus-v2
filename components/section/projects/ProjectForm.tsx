@@ -55,6 +55,7 @@ const ProjectForm = ({ techList }: { techList: ITechlist[] }) => {
           id="description"
           rows={5}
           placeholder="Project description"
+          aria-describedby="description-error"
           className="peer bg-transparent min-h-10 w-full rounded-lg text-gray-200 placeholder-transparent ring-2 px-2 pt-2 ring-gray-500 focus:ring-sky-600 focus:outline-none focus:border-rose-600"
         ></textarea>
         <label
@@ -63,6 +64,14 @@ const ProjectForm = ({ techList }: { techList: ITechlist[] }) => {
         >
           Project description
         </label>
+        <div id="description-error" aria-live="polite" aria-atomic="true">
+          {state.errors?.description &&
+            state.errors.description.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
+        </div>
       </div>
 
       <ToggleGroup type="multiple" className="flex justify-start items-center flex-wrap">
@@ -85,17 +94,39 @@ const ProjectForm = ({ techList }: { techList: ITechlist[] }) => {
       <div className="flex flex-col gap-5 w-full">
         <div className="flex gap-4 items-center">
           <Github size={30} />
-          <Input id="githubLink" type="text" name="githubLink" placeholder="Github link" />
+          <Input
+            id="githubLink"
+            type="text"
+            name="githubLink"
+            placeholder="Github link"
+            aria-describedby="githubLink-error"
+          />
+          <div id="githubLink-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.githubLink &&
+              state.errors.githubLink.map((error: string) => (
+                <p className="mt-2 text-sm text-red-500" key={error}>
+                  {error}
+                </p>
+              ))}
+          </div>
         </div>
         <div className="flex gap-4 items-center">
           <ExternalLink size={30} />
-          <Input id="demoLink" type="text" name="demoLink" placeholder="Demo link" />
+          <Input id="demoLink" type="text" name="demoLink" placeholder="Demo link" aria-describedby="demoLink-error" />
+          <div id="demoLink-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.demoLink &&
+              state.errors.demoLink.map((error: string) => (
+                <p className="mt-2 text-sm text-red-500" key={error}>
+                  {error}
+                </p>
+              ))}
+          </div>
         </div>
       </div>
 
       <button className="btn w-1/2 mx-auto">Add project</button>
 
-      <div></div>
+      <div>{state.message && <p className="mt-2 text-sm text-green-500">{state.message}</p>}</div>
     </form>
   );
 };
