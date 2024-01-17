@@ -3,7 +3,7 @@ import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import clientPromise from '@/lib/clientPromise';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import dbConnect from '@/lib/dbConn';
-import User from '@/db/models/User';
+import { User } from '@/db/models';
 import bcrypt from 'bcrypt';
 import { authConfig } from '@/app/api/auth/[...nextauth]/auth.config';
 import { z } from 'zod';

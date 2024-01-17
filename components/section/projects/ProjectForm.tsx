@@ -18,6 +18,7 @@ interface ITechlist {
 const ProjectForm = ({ techList }: { techList: ITechlist[] }) => {
   const [state, formAction] = useFormState(createProject, undefined);
   const [techs, setTechs] = useState<ITechs>({});
+  console.log('🚀 ~ ProjectForm ~ state:', state);
 
   const handleClick = (id: string) => {
     setTechs(prevState => {
@@ -81,6 +82,8 @@ const ProjectForm = ({ techList }: { techList: ITechlist[] }) => {
       </div>
 
       <button className="btn w-1/2 mx-auto">Add project</button>
+
+      <div>{state?.error && <div className="text-red-500 text-center text-sm font-semibold">{state.error}</div>}</div>
     </form>
   );
 };

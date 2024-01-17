@@ -1,7 +1,7 @@
 import mongoose, { Schema, Types } from 'mongoose';
 
 interface IProject {
-  name: string;
+  title: string;
   description: string;
   techs: Types.ObjectId[];
   urls: { name: string; url: string }[];
@@ -10,7 +10,7 @@ interface IProject {
 
 const projectSchema = new Schema<IProject>(
   {
-    name: String,
+    title: String,
     description: String,
     techs: [{ type: Schema.Types.ObjectId, ref: 'Tech' }],
     urls: [{ name: String, url: String }],
