@@ -10,15 +10,16 @@ import { useState } from 'react';
 interface ITechs {
   [key: string]: boolean;
 }
+
 interface ITechlist {
   _id: string;
   name: string;
 }
 
 const ProjectForm = ({ techList }: { techList: ITechlist[] }) => {
-  const [state, formAction] = useFormState(createProject, undefined);
+  const initialState = { errors: {}, message: '' };
+  const [state, formAction] = useFormState(createProject, initialState);
   const [techs, setTechs] = useState<ITechs>({});
-  console.log('🚀 ~ ProjectForm ~ state:', state);
 
   const handleClick = (id: string) => {
     setTechs(prevState => {
@@ -36,7 +37,18 @@ const ProjectForm = ({ techList }: { techList: ITechlist[] }) => {
       action={formAction}
       className="flex flex-col gap-5 border w-full h-full border-purple-800 rounded-md p-5 bg-background-lighter"
     >
-      <Input id="name" type="text" name="title" placeholder="Title" />
+      <div>
+        <Input id="name" type="text" name="title" placeholder="Title" aria-describedby="title-error" />
+        <div id="title-error" aria-live="polite" aria-atomic="true">
+          {state.errors?.title &&
+            state.errors.title.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
+        </div>
+      </div>
+
       <div className="relative bg-background-lighter">
         <textarea
           name="description"
@@ -83,7 +95,7 @@ const ProjectForm = ({ techList }: { techList: ITechlist[] }) => {
 
       <button className="btn w-1/2 mx-auto">Add project</button>
 
-      <div>{state?.error && <div className="text-red-500 text-center text-sm font-semibold">{state.error}</div>}</div>
+      <div></div>
     </form>
   );
 };

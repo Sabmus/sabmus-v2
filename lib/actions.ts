@@ -2,11 +2,35 @@
 
 import { signIn } from '@/lib/auth';
 import { AuthError } from 'next-auth';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 import dbConnect from '@/lib/dbConn';
-import { Tech, Project } from '@/db/models';
+import { Project } from '@/db/models';
 import mongoose from 'mongoose';
 import { z } from 'zod';
 import { auth } from '@/lib/auth';
+
+const ProjectFormSchema = z.object({
+  _id: z.string(),
+  title: z.string().min(4),
+  description: z.string().min(10),
+  techs: z.string().regex(/^\{"[0-9a-f]{24}":true(,"[0-9a-f]{24}":true)*\}$/),
+  githubLink: z.string().url(),
+  demoLink: z.string().url(),
+});
+
+const CreateProject = ProjectFormSchema.omit({ _id: true });
+
+export type ProjectState = {
+  errors?: {
+    title?: string[];
+    description?: string[];
+    techs?: string[];
+    githubLink?: string[];
+    demoLink?: string[];
+  };
+  message?: string | null;
+};
 
 export const login = async (prevState: any, formData: FormData) => {
   const { email, password } = Object.fromEntries(formData);
@@ -29,34 +53,26 @@ export const login = async (prevState: any, formData: FormData) => {
   }
 };
 
-export const getTechs = async () => {
-  try {
-    await dbConnect();
-    const techs = await Tech.find({}, { name: 1 }).exec();
-    return techs;
-  } catch (error) {
-    console.log(error);
-    mongoose.connection.close();
-    return [];
-  }
-};
-
-export const createProject = async (prevState: any, formData: FormData) => {
+export const createProject = async (prevState: ProjectState, formData: FormData) => {
   const session = await auth();
+  console.log('🚀 ~ createProject ~ session:', session);
 
-  const parsedData = z
-    .object({
-      title: z.string().min(4),
-      description: z.string().min(10),
-      techs: z.string().regex(/^\{"[0-9a-f]{24}":true(,"[0-9a-f]{24}":true)*\}$/),
-      githubLink: z.string().url(),
-      demoLink: z.string().url(),
-    })
-    .safeParse(Object.fromEntries(formData));
+  const validateFields = CreateProject.safeParse({
+    title: formData.get('title'),
+    description: formData.get('description'),
+    techs: formData.get('techs'),
+    githubLink: formData.get('githubLink'),
+    demoLink: formData.get('demoLink'),
+  });
 
-  if (!parsedData.success) return { error: 'Invalid input.' };
+  if (!validateFields.success) {
+    return {
+      errors: validateFields.error.flatten().fieldErrors,
+      message: 'Failed to create project.',
+    };
+  }
 
-  let { title, description, techs, githubLink, demoLink } = parsedData.data;
+  let { title, description, techs, githubLink, demoLink } = validateFields.data;
   techs = JSON.parse(techs);
   const techsList = Object.keys(techs).map(id => id);
 
@@ -76,14 +92,16 @@ export const createProject = async (prevState: any, formData: FormData) => {
     await Project.create({
       title,
       description,
-      techsList,
-      urlsMap,
+      techs: techsList,
+      urls: urlsMap,
       author: session?.user?.id,
     });
-    return { message: 'created!' };
   } catch (error) {
     console.log(error);
     mongoose.connection.close();
-    return { error: 'Something went wrong.' };
+    return { message: 'Database error.' };
   }
+
+  revalidatePath('/admin/projects');
+  redirect('/admin/projects');
 };

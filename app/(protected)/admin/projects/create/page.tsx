@@ -1,7 +1,7 @@
 import { MoveLeft } from 'lucide-react';
 import Link from 'next/link';
 import ProjectForm from '@/components/section/projects/ProjectForm';
-import { getTechs } from '@/lib/actions';
+import { getTechs } from '@/lib/data';
 
 const CreateProject = async () => {
   const techList = (await getTechs()).map(tech => JSON.parse(JSON.stringify(tech)));
