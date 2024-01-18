@@ -23,7 +23,7 @@ const About = () => {
                   professional development.
                 </p>
                 <p>
-                  After that I work as a web development with technologies such as PHP, .NET, and SQL. To then explore
+                  After that I worked as a web developer with technologies such as PHP, .NET, and SQL. To then explore
                   the data world, working on data related positions for about 3.5 years.
                 </p>
                 <p>
@@ -31,7 +31,7 @@ const About = () => {
                   enjoy reading about web development. So here I{"'"}m!.
                 </p>
                 <p>
-                  My objective is to become a full-stack developer and have the privilege to work with a web development
+                  My objective is to become a full-stack developer and have the privilege to work in a web development
                   team.
                 </p>
                 <p>Here are my main technologies:</p>
