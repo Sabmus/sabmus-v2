@@ -79,7 +79,7 @@ const ProjectForm = ({ techList }: { techList: ITechlist[] }) => {
           techList.map((tech, i) => (
             <ToggleGroupItem
               key={i}
-              value={tech.name}
+              value={tech._id}
               name={tech.name}
               onClick={() => handleClick(tech._id)}
               className="h-7 w-fit"
