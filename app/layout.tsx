@@ -18,8 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <AuthProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-            <div id="root" className="min-h-screen">
-              <div className="flex flex-col min-h-screen">
+            <div id="root" className="min-h-svh">
+              <div className="flex flex-col min-h-svh">
                 <div className="fixed w-full top-3 z-10 flex justify-center">
                   <GlowWrapper className="w-5/6 bg-opacity-5">
                     <div className="relative w-full py-4 bg-header bg-opacity-85 backdrop-blur-sm rounded-2xl px-10">
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     </div>
                   </GlowWrapper>
                 </div>
-                <div id="content" className="flex flex-col w-full min-h-screen">
+                <div id="content" className="flex flex-col w-full min-h-svh">
                   <main className="flex-sticky-footer">{children}</main>
                   <div className="shrink-0">
                     <Footer />
