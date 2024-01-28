@@ -115,7 +115,7 @@ const Experience = () => {
                 })}
             </div>
 
-            <div className="w-full">
+            <div className="w-full h-[300px] min-h-max">
               {experienceData &&
                 experienceData.map((experienceData, i) => (
                   <ExperienceTransition key={i} experienceData={experienceData} activeTab={activeTab} idx={i} />
